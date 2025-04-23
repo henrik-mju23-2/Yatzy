@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="Yatzy.BlankPage2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Yatzy"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Width="1280" Height="720" Background="#FFA3A3A3">
+        <TextBlock x:Name="InformationTitleText" HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" FontSize="80"/>
+        <ScrollViewer x:Name="InformationScrollViewer" Background="White" Width="800" Height="400" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" FontSize="24" Foreground="Black" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" MaxZoomFactor="10">
+            <TextBlock x:Name="InfoTextBlock" TextWrapping="Wrap" Text="Programmet är en digital version av tärningsspelet Yatzy. Yatzy är ett tärningsspel med plats för ett obegränsat antal deltagare där vinnaren blir den som uppnått högst poäng efter spelets slut. Spelet använder sig av fem tärningar och varje spelare får rätt till tre tärningskast vid sin tur. I det första kastet används alla fem tärningar, men på de följande kasten bestämmer spelaren själv vilka tärningar spelaren vill slå om. Poängsumman införs i ett protokoll efter varje tur. Varje rad i protokollet motsvarar en regel som tärningarna måste uppfylla för att räknas. Till exempel på raden femmor får man endast skriva in poängen från de tärningar som visar 5." FontSize="30" Margin="15,15,15,15"/>
+        </ScrollViewer>
+        <Button x:Name="BackButton" Content="Tillbaka" Margin="0,592,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Height="75" Width="175" FontSize="48" HorizontalAlignment="Center"/>
+    </Grid>
+</Page>
