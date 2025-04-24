@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.ViewManagement;
@@ -21,9 +22,9 @@ namespace Yatzy
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class StartPage : Page
     {
-        public MainPage()
+        public StartPage()
         {
             this.InitializeComponent();
 
@@ -33,7 +34,7 @@ namespace Yatzy
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(ConfigurationPage));
         }
 
         private void TitleText_SelectionChanged(object sender, RoutedEventArgs e)

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Yatzy.BlankPage3"
+    x:Class="Yatzy.GamePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Yatzy"
@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Width="1280" Height="720" Background="#FFA3A3A3">
-        <Button x:Name="InfoButton" Content="i" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" Height="75" Width="75" CornerRadius="15,15,15,15" BorderThickness="1,1,1,1" FontSize="70" FontFamily="Mongolian Baiti"/>
+        <Button x:Name="InfoButton" Content="i" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" Height="75" Width="75" CornerRadius="15,15,15,15" BorderThickness="1,1,1,1" FontSize="70" FontFamily="Mongolian Baiti" Click="InfoButton_Click"/>
         <Rectangle x:Name="Rectangle1" HorizontalAlignment="Left" Height="667" Stroke="Black" VerticalAlignment="Center" Width="888" Fill="#FF2BA748" RadiusX="15" RadiusY="15" Margin="96,0,0,0"/>
         <Rectangle x:Name="Rectangle1_Copy" HorizontalAlignment="Left" Height="667" Stroke="Black" VerticalAlignment="Center" Width="256" Fill="White" RadiusX="15" RadiusY="15" Margin="1003,0,0,0"/>
         <Rectangle x:Name="Rectangle1_Copy1" HorizontalAlignment="Left" Height="80" Stroke="Black" VerticalAlignment="Top" Width="256" Fill="#FF0062FF" RadiusX="15" RadiusY="15" Margin="1003,26,0,0" RenderTransformOrigin="0.5,0.5">
@@ -304,7 +304,7 @@
         <Rectangle x:Name="Rectangle2_Copy23" HorizontalAlignment="Left" Height="21" Stroke="Black" VerticalAlignment="Top" Width="78" Fill="#FF0062FF" StrokeThickness="0" Margin="147,216,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="146,237,0,0" TextWrapping="Wrap" Text="Spelare 2" VerticalAlignment="Top" Foreground="Black" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="148,612,0,0" TextWrapping="Wrap" Text="Spelare 1" VerticalAlignment="Top" Foreground="Black" FontSize="20"/>
-        <Button x:Name="DieButton" Margin="826,518,0,0" VerticalAlignment="Top" Width="128" Height="128" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1">
+        <Button x:Name="DieButton" Margin="826,518,0,0" VerticalAlignment="Top" Width="128" Height="128" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" Click="DieButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/DieButtonImage.png" Stretch="Fill"/>
             </Button.Background>

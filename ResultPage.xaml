@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Yatzy.BlankPage4"
+    x:Class="Yatzy.ResultPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Yatzy"
@@ -11,7 +11,7 @@
     <Grid Width="1280" Height="720" Background="#FFA3A3A3">
         <TextBlock x:Name="ResultPageTitleText" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="Resultat" VerticalAlignment="Top" FontSize="96"/>
         <Rectangle x:Name="Rectangle1" HorizontalAlignment="Center" Height="400" Stroke="Black" VerticalAlignment="Center" Width="400" Fill="White" RadiusX="15" RadiusY="15"/>
-        <Button x:Name="ResultatPageBackButton" Content="Tillbaka" Margin="0,590,0,0" VerticalAlignment="Top" Width="175" Height="75" Background="#FF0062FF" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" FontSize="48" HorizontalAlignment="Center"/>
+        <Button x:Name="ResultatPageBackButton" Content="Tillbaka" Margin="0,590,0,0" VerticalAlignment="Top" Width="175" Height="75" Background="#FF0062FF" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" FontSize="48" HorizontalAlignment="Center" Click="ResultatPageBackButton_Click"/>
         <Rectangle x:Name="Rectangle2" HorizontalAlignment="Center" Height="210" Stroke="Black" VerticalAlignment="Top" Width="210" Fill="#FFA3A3A3" RadiusX="15" RadiusY="15" Margin="0,215,0,0"/>
         <Rectangle x:Name="Rectangle2_Copy" HorizontalAlignment="Center" Height="96" Stroke="Black" VerticalAlignment="Top" Width="96" Fill="#FF0062FF" RadiusX="360" RadiusY="360" Margin="0,236,0,0"/>
         <Rectangle x:Name="Rectangle2_Copy1" HorizontalAlignment="Center" Height="71" Stroke="Black" VerticalAlignment="Top" Width="151" Fill="#FF0062FF" RadiusY="30" RadiusX="30" Margin="0,352,0,0"/>

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Yatzy.BlankPage1"
+    x:Class="Yatzy.ConfigurationPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Yatzy"
@@ -11,8 +11,8 @@
     <Grid Width="1280" Height="720" Background="#FFA3A3A3">
         <TextBlock x:Name="KonfigurationTitleText" HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="Konfiguration" VerticalAlignment="Top" FontSize="80"/>
         <TextBox x:Name="InputBox" HorizontalAlignment="Center" Margin="0,535,0,0" TextWrapping="Wrap" Text="Skriv in antalet spelare" VerticalAlignment="Top" Width="734" Height="75" Background="White" Foreground="#FFE6E6E6" FontSize="48" CornerRadius="15,15,15,15" BorderBrush="#66000000" BorderThickness="1,1,1,1"/>
-        <Button x:Name="OkButton" Content="OK" Margin="832,535,0,0" VerticalAlignment="Top" Background="#FF0062FF" CornerRadius="15,15,15,15" Width="175" Height="75" FontSize="48" BorderBrush="Black" BorderThickness="1,1,1,1"/>
-        <Button x:Name="InfoButton" Content="i" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" Height="75" Width="75" CornerRadius="15,15,15,15" BorderThickness="1,1,1,1" FontSize="70" FontFamily="Mongolian Baiti"/>
+        <Button x:Name="OkButton" Content="OK" Margin="832,535,0,0" VerticalAlignment="Top" Background="#FF0062FF" CornerRadius="15,15,15,15" Width="175" Height="75" FontSize="48" BorderBrush="Black" BorderThickness="1,1,1,1" Click="OkButton_Click"/>
+        <Button x:Name="InfoButton" Content="i" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" Height="75" Width="75" CornerRadius="15,15,15,15" BorderThickness="1,1,1,1" FontSize="70" FontFamily="Mongolian Baiti" Click="InfoButton_Click"/>
 
     </Grid>
 </Page>

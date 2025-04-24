@@ -20,9 +20,9 @@ namespace Yatzy
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BlankPage3 : Page
+    public sealed partial class GamePage : Page
     {
-        public BlankPage3()
+        public GamePage()
         {
             this.InitializeComponent();
         }
@@ -30,6 +30,16 @@ namespace Yatzy
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void DieButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ResultPage));
+        }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InformationPage));
         }
     }
 }

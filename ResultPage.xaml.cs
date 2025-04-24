@@ -20,11 +20,16 @@ namespace Yatzy
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BlankPage4 : Page
+    public sealed partial class ResultPage : Page
     {
-        public BlankPage4()
+        public ResultPage()
         {
             this.InitializeComponent();
+        }
+
+        private void ResultatPageBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(StartPage));
         }
     }
 }

@@ -20,11 +20,21 @@ namespace Yatzy
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BlankPage1 : Page
+    public sealed partial class ConfigurationPage : Page
     {
-        public BlankPage1()
+        public ConfigurationPage()
         {
             this.InitializeComponent();
+        }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InformationPage));
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GamePage));
         }
     }
 }
