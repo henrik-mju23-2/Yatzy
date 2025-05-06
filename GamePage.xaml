@@ -146,31 +146,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="504,632,0,0" TextWrapping="Wrap" Text="SUMMA" VerticalAlignment="Top" Foreground="Black" FontSize="28" Height="31" SelectionChanged="TextBlock_SelectionChanged" FontWeight="Bold" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="629,86,0,0" TextWrapping="Wrap" Text="Spelare 1" VerticalAlignment="Top" Foreground="White" FontSize="12" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="691,86,0,0" TextWrapping="Wrap" Text="Spelare 2" VerticalAlignment="Top" Foreground="White" FontSize="12" Grid.Column="1"/>
-        <Rectangle x:Name="Rectangle1_Copy14" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="278,512,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy25" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="386,512,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy26" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="498,512,0,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy27" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="100,512,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy28" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="206,511,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
         <Rectangle x:Name="Rectangle1_Copy29" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="278,145,0,0" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
@@ -214,11 +189,36 @@
             </Button.Background>
         </Button>
         <TextBlock HorizontalAlignment="Left" Margin="354,481,0,0" TextWrapping="Wrap" Text="Rulla" VerticalAlignment="Top" Foreground="Black" FontSize="24" FontWeight="Bold" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
-        <Button x:Name="Die1" Content="" Margin="231,318,0,0" VerticalAlignment="Top" Width="100" Height="100"/>
-        <Button x:Name="Die2" Content="" Margin="354,318,0,0" VerticalAlignment="Top" Width="100" Height="100"/>
-        <Button x:Name="Die3" Content="" Margin="476,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.ColumnSpan="2"/>
-        <Button x:Name="Die4" Content="" Margin="100,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1"/>
-        <Button x:Name="Die5" Content="" Margin="233,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1" RenderTransformOrigin="0.12,0.42"/>
+        <Button x:Name="Die1" Content="" Margin="231,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="Die1_Click"/>
+        <Button x:Name="Die2" Content="" Margin="354,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="Die2_Click"/>
+        <Button x:Name="Die3" Content="" Margin="476,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.ColumnSpan="2" Click="Die3_Click"/>
+        <Button x:Name="Die4" Content="" Margin="100,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1" Click="Die4_Click"/>
+        <Button x:Name="Die5" Content="" Margin="233,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1" RenderTransformOrigin="0.12,0.42" Click="Die5_Click"/>
+        <Button x:Name="DieSlot1" Content="" Margin="281,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Click="DieSlot1_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/DieSlot.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DieSlot2" Content="" Margin="386,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Click="DieSlot2_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/DieSlot.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DieSlot3" Content="" Margin="498,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.ColumnSpan="2" Click="DieSlot3_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/DieSlot.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DieSlot4" Content="" Margin="100,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.Column="1" Click="DieSlot4_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/DieSlot.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DieSlot5" Content="" Margin="206,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.Column="1" Click="DieSlot5_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/DieSlot.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Page>
