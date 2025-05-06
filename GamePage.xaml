@@ -9,239 +9,143 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Width="1280" Height="720" Background="#FFA3A3A3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="193*"/>
+        </Grid.ColumnDefinitions>
         <Button x:Name="InfoButton" Content="i" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" Height="75" Width="75" CornerRadius="15,15,15,15" BorderThickness="1,1,1,1" FontSize="70" FontFamily="Mongolian Baiti" Click="InfoButton_Click"/>
-        <Rectangle x:Name="Rectangle1" HorizontalAlignment="Left" Height="667" Stroke="Black" VerticalAlignment="Center" Width="888" Fill="#FF2BA748" RadiusX="15" RadiusY="15" Margin="96,0,0,0"/>
-        <Rectangle x:Name="Rectangle1_Copy" HorizontalAlignment="Left" Height="667" Stroke="Black" VerticalAlignment="Center" Width="256" Fill="White" RadiusX="15" RadiusY="15" Margin="1003,0,0,0"/>
-        <Rectangle x:Name="Rectangle1_Copy1" HorizontalAlignment="Left" Height="80" Stroke="Black" VerticalAlignment="Top" Width="256" Fill="#FF0062FF" RadiusX="15" RadiusY="15" Margin="1003,26,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1" HorizontalAlignment="Left" Height="667" Stroke="Black" VerticalAlignment="Center" Width="888" Fill="#FF2BA748" RadiusX="15" RadiusY="15" Margin="96,0,0,0" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="Rectangle1_Copy" HorizontalAlignment="Left" Height="667" Stroke="Black" VerticalAlignment="Center" Width="256" Fill="White" RadiusX="15" RadiusY="15" Margin="495,0,0,0" Grid.Column="1"/>
+        <Rectangle x:Name="Rectangle1_Copy1" HorizontalAlignment="Left" Height="80" Stroke="Black" VerticalAlignment="Top" Width="256" Fill="#FF0062FF" RadiusX="15" RadiusY="15" Margin="495,26,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy2" HorizontalAlignment="Left" Height="60" Stroke="Black" VerticalAlignment="Top" Width="256" Fill="#FF0062FF" Margin="1003,46,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1_Copy2" HorizontalAlignment="Left" Height="60" Stroke="Black" VerticalAlignment="Top" Width="256" Fill="#FF0062FF" Margin="495,46,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy3" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="253" Fill="#FF0062FF" Margin="1005,42,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1_Copy3" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="253" Fill="#FF0062FF" Margin="497,42,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="51" Fill="#FFA3A3A3" RadiusX="15" RadiusY="15" Margin="1198,35,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="51" Fill="#FFA3A3A3" RadiusX="15" RadiusY="15" Margin="690,35,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy" HorizontalAlignment="Left" Height="23" Stroke="Black" VerticalAlignment="Top" Width="22" Fill="#FF0062FF" RadiusX="360" RadiusY="360" Margin="1212,39,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy" HorizontalAlignment="Left" Height="23" Stroke="Black" VerticalAlignment="Top" Width="22" Fill="#FF0062FF" RadiusX="360" RadiusY="360" Margin="704,39,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy1" HorizontalAlignment="Left" Height="18" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" RadiusY="30" RadiusX="30" Margin="1205,67,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy1" HorizontalAlignment="Left" Height="18" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" RadiusY="30" RadiusX="30" Margin="697,67,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy2" HorizontalAlignment="Left" Height="8" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" Margin="1205,78,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy2" HorizontalAlignment="Left" Height="8" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" Margin="697,78,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy3" HorizontalAlignment="Left" Height="9" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FF0062FF" StrokeThickness="0" Margin="1205,75,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy3" HorizontalAlignment="Left" Height="9" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FF0062FF" StrokeThickness="0" Margin="697,75,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy4" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="51" Fill="White" RadiusX="15" RadiusY="15" Margin="1198,35,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy4" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="51" Fill="White" RadiusX="15" RadiusY="15" Margin="690,35,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy5" HorizontalAlignment="Left" Height="23" Stroke="Black" VerticalAlignment="Top" Width="22" Fill="#FF0062FF" RadiusX="360" RadiusY="360" Margin="1212,39,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy5" HorizontalAlignment="Left" Height="23" Stroke="Black" VerticalAlignment="Top" Width="22" Fill="#FF0062FF" RadiusX="360" RadiusY="360" Margin="704,39,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy6" HorizontalAlignment="Left" Height="18" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" RadiusY="30" RadiusX="30" Margin="1205,67,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy6" HorizontalAlignment="Left" Height="18" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" RadiusY="30" RadiusX="30" Margin="697,67,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy7" HorizontalAlignment="Left" Height="8" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" Margin="1205,78,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy7" HorizontalAlignment="Left" Height="8" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" Margin="697,78,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy8" HorizontalAlignment="Left" Height="9" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FF0062FF" StrokeThickness="0" Margin="1205,75,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy8" HorizontalAlignment="Left" Height="9" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FF0062FF" StrokeThickness="0" Margin="697,75,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy9" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="51" Fill="White" RadiusX="15" RadiusY="15" Margin="1135,35,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy9" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="51" Fill="White" RadiusX="15" RadiusY="15" Margin="627,35,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy10" HorizontalAlignment="Left" Height="23" Stroke="Black" VerticalAlignment="Top" Width="22" Fill="#FF0062FF" RadiusX="360" RadiusY="360" Margin="1149,39,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy10" HorizontalAlignment="Left" Height="23" Stroke="Black" VerticalAlignment="Top" Width="22" Fill="#FF0062FF" RadiusX="360" RadiusY="360" Margin="641,39,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy11" HorizontalAlignment="Left" Height="18" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" RadiusY="30" RadiusX="30" Margin="1142,67,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy11" HorizontalAlignment="Left" Height="18" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" RadiusY="30" RadiusX="30" Margin="634,67,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy12" HorizontalAlignment="Left" Height="8" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" Margin="1142,78,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy12" HorizontalAlignment="Left" Height="8" Stroke="Black" VerticalAlignment="Top" Width="37" Fill="#FF0062FF" Margin="634,78,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle2_Copy13" HorizontalAlignment="Left" Height="9" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FF0062FF" StrokeThickness="0" Margin="1142,75,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle2_Copy13" HorizontalAlignment="Left" Height="9" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FF0062FF" StrokeThickness="0" Margin="634,75,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Line" HorizontalAlignment="Left" Height="667" Margin="1192,0,0,0" VerticalAlignment="Center" Width="1" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy" HorizontalAlignment="Left" Height="667" Margin="1129,0,0,0" VerticalAlignment="Center" Width="1" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy1" HorizontalAlignment="Left" Height="1" Margin="1005,144,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy2" HorizontalAlignment="Left" Height="1" Margin="1005,174,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy3" HorizontalAlignment="Left" Height="1" Margin="1005,203.5,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy4" HorizontalAlignment="Left" Height="1" Margin="1005,234,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy5" HorizontalAlignment="Left" Height="1" Margin="1005,264,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy6" HorizontalAlignment="Left" Height="1" Margin="1005,294,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Stroke="Black"/>
-        <Rectangle x:Name="Line_Copy7" HorizontalAlignment="Left" Height="1" Margin="1005,324,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy8" HorizontalAlignment="Left" Height="1" Margin="1005,354,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Stroke="Black"/>
-        <Rectangle x:Name="Line_Copy9" HorizontalAlignment="Left" Height="1" Margin="1005,384,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy10" HorizontalAlignment="Left" Height="1" Margin="1005,414,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy11" HorizontalAlignment="Left" Height="1" Margin="1005,444,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy12" HorizontalAlignment="Left" Height="1" Margin="1005,474,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy13" HorizontalAlignment="Left" Height="1" Margin="1005,504,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy14" HorizontalAlignment="Left" Height="1" Margin="1005,534,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy15" HorizontalAlignment="Left" Height="1" Margin="1005,561,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <Rectangle x:Name="Line_Copy16" HorizontalAlignment="Left" Height="1" Margin="1005,591,0,0" VerticalAlignment="Top" Width="254" Fill="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,112,0,0" TextWrapping="Wrap" Text="Ettor" VerticalAlignment="Top" Foreground="Black" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,142,0,0" TextWrapping="Wrap" Text="Tvåor" VerticalAlignment="Top" Foreground="Black" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,171,0,0" TextWrapping="Wrap" Text="Treor" VerticalAlignment="Top" Foreground="Black" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,200,0,0" TextWrapping="Wrap" Text="Fyror" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,232,0,0" TextWrapping="Wrap" Text="Femmor" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,262,0,0" TextWrapping="Wrap" Text="Sexor" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,292,0,0" TextWrapping="Wrap" Text="Summa" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,322,0,0" TextWrapping="Wrap" Text="Bonus" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,352,0,0" TextWrapping="Wrap" Text="Ett Par" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,382,0,0" TextWrapping="Wrap" Text="Två Par" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,412,0,0" TextWrapping="Wrap" Text="Tretal" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,440,0,0" TextWrapping="Wrap" Text="Fyrtal" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,472,0,0" TextWrapping="Wrap" Text="Kåk" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,502,0,0" TextWrapping="Wrap" Text="Liten Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,530,0,0" TextWrapping="Wrap" Text="Stor Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,530,0,0" TextWrapping="Wrap" Text="Stor Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <Rectangle x:Name="Line_Copy17" HorizontalAlignment="Left" Height="1" Margin="1005,626,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Stroke="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,559,0,0" TextWrapping="Wrap" Text="Chans" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,591,0,0" TextWrapping="Wrap" Text="Yatzy" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1012,632,0,0" TextWrapping="Wrap" Text="SUMMA" VerticalAlignment="Top" Foreground="Black" FontSize="28" Height="31" SelectionChanged="TextBlock_SelectionChanged" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1137,86,0,0" TextWrapping="Wrap" Text="Spelare 1" VerticalAlignment="Top" Foreground="White" FontSize="12"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1199,86,0,0" TextWrapping="Wrap" Text="Spelare 2" VerticalAlignment="Top" Foreground="White" FontSize="12"/>
-        <Rectangle x:Name="Rectangle1_Copy4" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Fill="White" RadiusX="15" RadiusY="15" Margin="254,322,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy5" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="291,359,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy6" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Fill="White" RadiusX="15" RadiusY="15" Margin="380,322,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy8" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="392,336,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy9" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="442,380,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy10" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Fill="White" RadiusX="15" RadiusY="15" Margin="509,322,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy11" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="546,359,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy12" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="521,336,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy13" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="571,380,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy7" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Fill="White" RadiusX="15" RadiusY="15" Margin="640,318,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy15" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="652,332,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy16" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="702,376,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy17" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="702,332,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy18" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="652,376,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy19" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Fill="White" RadiusX="15" RadiusY="15" Margin="767,318,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy20" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="804,355,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy21" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="779,332,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy22" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="829,376,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy23" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="829,332,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy24" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Fill="Black" RadiusX="15" RadiusY="15" Margin="779,376,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <CompositeTransform ScaleY="-1"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
+        <Rectangle x:Name="Line" HorizontalAlignment="Left" Height="667" Margin="684,0,0,0" VerticalAlignment="Center" Width="1" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy" HorizontalAlignment="Left" Height="667" Margin="621,0,0,0" VerticalAlignment="Center" Width="1" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy1" HorizontalAlignment="Left" Height="1" Margin="497,144,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy2" HorizontalAlignment="Left" Height="1" Margin="497,174,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy3" HorizontalAlignment="Left" Height="1" Margin="497,204,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy4" HorizontalAlignment="Left" Height="1" Margin="497,234,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy5" HorizontalAlignment="Left" Height="1" Margin="497,264,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy6" HorizontalAlignment="Left" Height="1" Margin="497,294,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Stroke="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy7" HorizontalAlignment="Left" Height="1" Margin="497,324,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy8" HorizontalAlignment="Left" Height="1" Margin="497,354,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Stroke="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy9" HorizontalAlignment="Left" Height="1" Margin="497,384,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy10" HorizontalAlignment="Left" Height="1" Margin="497,414,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy11" HorizontalAlignment="Left" Height="1" Margin="497,444,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy12" HorizontalAlignment="Left" Height="1" Margin="497,474,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy13" HorizontalAlignment="Left" Height="1" Margin="497,504,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy14" HorizontalAlignment="Left" Height="1" Margin="497,534,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy15" HorizontalAlignment="Left" Height="1" Margin="497,561,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy16" HorizontalAlignment="Left" Height="1" Margin="497,591,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,112,0,0" TextWrapping="Wrap" Text="Ettor" VerticalAlignment="Top" Foreground="Black" FontSize="24" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,142,0,0" TextWrapping="Wrap" Text="Tvåor" VerticalAlignment="Top" Foreground="Black" FontSize="24" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,171,0,0" TextWrapping="Wrap" Text="Treor" VerticalAlignment="Top" Foreground="Black" FontSize="24" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,200,0,0" TextWrapping="Wrap" Text="Fyror" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,232,0,0" TextWrapping="Wrap" Text="Femmor" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,262,0,0" TextWrapping="Wrap" Text="Sexor" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,292,0,0" TextWrapping="Wrap" Text="Summa" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,322,0,0" TextWrapping="Wrap" Text="Bonus" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,352,0,0" TextWrapping="Wrap" Text="Ett Par" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,382,0,0" TextWrapping="Wrap" Text="Två Par" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,412,0,0" TextWrapping="Wrap" Text="Tretal" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,440,0,0" TextWrapping="Wrap" Text="Fyrtal" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,472,0,0" TextWrapping="Wrap" Text="Kåk" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,502,0,0" TextWrapping="Wrap" Text="Liten Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,530,0,0" TextWrapping="Wrap" Text="Stor Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,530,0,0" TextWrapping="Wrap" Text="Stor Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <Rectangle x:Name="Line_Copy17" HorizontalAlignment="Left" Height="1" Margin="497,626,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Stroke="Black" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,559,0,0" TextWrapping="Wrap" Text="Chans" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,591,0,0" TextWrapping="Wrap" Text="Yatzy" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,632,0,0" TextWrapping="Wrap" Text="SUMMA" VerticalAlignment="Top" Foreground="Black" FontSize="28" Height="31" SelectionChanged="TextBlock_SelectionChanged" FontWeight="Bold" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="629,86,0,0" TextWrapping="Wrap" Text="Spelare 1" VerticalAlignment="Top" Foreground="White" FontSize="12" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="691,86,0,0" TextWrapping="Wrap" Text="Spelare 2" VerticalAlignment="Top" Foreground="White" FontSize="12" Grid.Column="1"/>
         <Rectangle x:Name="Rectangle1_Copy14" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="278,512,0,0" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
@@ -252,17 +156,17 @@
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy26" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="498,512,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1_Copy26" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="498,512,0,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy27" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="608,512,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1_Copy27" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="100,512,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy28" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="714,511,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1_Copy28" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="206,511,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
@@ -277,17 +181,17 @@
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy31" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="498,145,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1_Copy31" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="498,145,0,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy32" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="608,145,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1_Copy32" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="100,145,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Rectangle1_Copy33" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="714,144,0,0" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Rectangle1_Copy33" HorizontalAlignment="Left" Height="85" Stroke="Black" VerticalAlignment="Top" Width="85" Fill="#B2FFFFFF" RadiusX="15" RadiusY="15" Margin="206,144,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <CompositeTransform ScaleY="-1"/>
             </Rectangle.RenderTransform>
@@ -304,12 +208,17 @@
         <Rectangle x:Name="Rectangle2_Copy23" HorizontalAlignment="Left" Height="21" Stroke="Black" VerticalAlignment="Top" Width="78" Fill="#FF0062FF" StrokeThickness="0" Margin="147,216,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="146,237,0,0" TextWrapping="Wrap" Text="Spelare 2" VerticalAlignment="Top" Foreground="Black" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="148,612,0,0" TextWrapping="Wrap" Text="Spelare 1" VerticalAlignment="Top" Foreground="Black" FontSize="20"/>
-        <Button x:Name="DieButton" Margin="826,518,0,0" VerticalAlignment="Top" Width="128" Height="128" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" Click="DieButton_Click">
+        <Button x:Name="DieButton" Margin="318,518,0,0" VerticalAlignment="Top" Width="128" Height="128" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" Click="DieButton_Click" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/DieButtonImage.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="862,481,0,0" TextWrapping="Wrap" Text="Rulla" VerticalAlignment="Top" Foreground="Black" FontSize="24" FontWeight="Bold" SelectionChanged="TextBlock_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="354,481,0,0" TextWrapping="Wrap" Text="Rulla" VerticalAlignment="Top" Foreground="Black" FontSize="24" FontWeight="Bold" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <Button x:Name="Die1" Content="" Margin="231,318,0,0" VerticalAlignment="Top" Width="100" Height="100"/>
+        <Button x:Name="Die2" Content="" Margin="354,318,0,0" VerticalAlignment="Top" Width="100" Height="100"/>
+        <Button x:Name="Die3" Content="" Margin="476,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.ColumnSpan="2"/>
+        <Button x:Name="Die4" Content="" Margin="100,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1"/>
+        <Button x:Name="Die5" Content="" Margin="233,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1" RenderTransformOrigin="0.12,0.42"/>
 
     </Grid>
 </Page>
