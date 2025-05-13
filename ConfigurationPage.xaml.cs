@@ -29,7 +29,12 @@ namespace Yatzy
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(InformationPage));
+            InformationPopUp.IsOpen = true;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            InformationPopUp.IsOpen = false;
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

@@ -219,6 +219,17 @@
                 <ImageBrush ImageSource="/Assets/DieSlot.png"/>
             </Button.Background>
         </Button>
+        <Popup x:Name="InformationPopUp" Width="1024" Height="576" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="119,78,0,0" IsLightDismissEnabled="True" IsOpen="False">
+            <StackPanel Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid Width="1024" Height="576" Background="#FFA3A3A3" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="1,1,1,1">
+                    <TextBlock x:Name="InformationTitleText" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" FontSize="70"/>
+                    <ScrollViewer x:Name="InformationScrollViewer" Background="White" Width="800" Height="400" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" FontSize="24" Foreground="Black" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" MaxZoomFactor="10">
+                        <TextBlock x:Name="InfoTextBlock" TextWrapping="Wrap" Text="Programmet är en digital version av tärningsspelet Yatzy. Yatzy är ett tärningsspel med plats för ett obegränsat antal deltagare där vinnaren blir den som uppnått högst poäng efter spelets slut. Spelet använder sig av fem tärningar och varje spelare får rätt till tre tärningskast vid sin tur. I det första kastet används alla fem tärningar, men på de följande kasten bestämmer spelaren själv vilka tärningar spelaren vill slå om. Poängsumman införs i ett protokoll efter varje tur. Varje rad i protokollet motsvarar en regel som tärningarna måste uppfylla för att räknas. Till exempel på raden femmor får man endast skriva in poängen från de tärningar som visar 5." FontSize="30" Margin="15,15,15,15"/>
+                    </ScrollViewer>
+                    <Button x:Name="BackButton" Content="Tillbaka" Margin="0,495,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Height="75" Width="175" FontSize="48" HorizontalAlignment="Center" Click="BackButton_Click"/>
+                </Grid>
+            </StackPanel>
+        </Popup>
 
     </Grid>
 </Page>
