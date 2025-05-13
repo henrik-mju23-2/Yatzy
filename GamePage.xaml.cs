@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,6 +31,17 @@ namespace Yatzy
         public int DieThrow4;
         public int DieThrow5;
 
+        // Background for empty Die
+        ImageBrush Empty = new ImageBrush();
+
+        ImageBrush img1 = new ImageBrush();
+        ImageBrush img2 = new ImageBrush();
+        ImageBrush img3 = new ImageBrush();
+        ImageBrush img4 = new ImageBrush();
+        ImageBrush img5 = new ImageBrush();
+
+        ImageBrush DieSlotImage = new ImageBrush();
+
         public GamePage()
         {
             this.InitializeComponent();
@@ -42,44 +54,91 @@ namespace Yatzy
 
         private void DieButton_Click(object sender, RoutedEventArgs e)
         {
+
             // Rolls the dice and updates their background images
             DieThrow1 = rnd.Next(1, 7);
-            ImageBrush img1 = new ImageBrush();
-            img1.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow1}.png"));
-            Die1.Background = img1;
+            Die1.Background = Empty;
 
             DieThrow2 = rnd.Next(1, 7);
-            ImageBrush img2 = new ImageBrush();
-            img2.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow2}.png"));
-            Die2.Background = img2;
+            Die2.Background = Empty;
 
             DieThrow3 = rnd.Next(1, 7);
-            ImageBrush img3 = new ImageBrush();
-            img3.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow3}.png"));
-            Die3.Background = img3;
+            Die3.Background = Empty;
 
 
             DieThrow4 = rnd.Next(1, 7);
-            ImageBrush img4 = new ImageBrush();
-            img4.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow4}.png"));
-            Die4.Background = img4;
+            Die4.Background = Empty;
 
 
             DieThrow5 = rnd.Next(1, 7);
-            ImageBrush img5 = new ImageBrush();
-            img5.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow5}.png"));
-            Die5.Background = img5;
+            Die5.Background = Empty;
 
             // TODO: Rewrite this code to use fewer lines
 
             // Reset DieSlot images each dice roll
-            ImageBrush DieSlotImage = new ImageBrush();
             DieSlotImage.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/DieSlot.png"));
-            DieSlot1.Background = DieSlotImage;
-            DieSlot2.Background = DieSlotImage;
-            DieSlot3.Background = DieSlotImage;
-            DieSlot4.Background = DieSlotImage;
-            DieSlot5.Background = DieSlotImage;
+
+            if (DieSlot1.Background == img1)
+            {
+                img1 = img1;
+                Die1.Background = Empty;
+            }
+            else
+            {
+                img1.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow1}.png"));
+                DieSlot1.Background = DieSlotImage;
+                Die1.Background = img1;
+            }
+
+            if (DieSlot2.Background == img2)
+            {
+                img2 = img2;
+                Die2.Background = Empty;
+            }
+            else
+            {
+                img2.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow2}.png"));
+                DieSlot2.Background = DieSlotImage;
+                Die2.Background = img2;
+            }
+
+            if (DieSlot3.Background == img3)
+            {
+                img3 = img3;
+                Die3.Background = Empty;
+            }
+            else
+            {
+                img3.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow3}.png"));
+                DieSlot3.Background = DieSlotImage;
+                Die3.Background = img3;
+            }
+
+            if (DieSlot4.Background == img4)
+            {
+                img4 = img4;
+                Die4.Background = Empty;
+            }
+            else
+            {
+                img4.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow4}.png"));
+                DieSlot4.Background = DieSlotImage;
+                Die4.Background = img4;
+            }
+
+            if (DieSlot5.Background == img5)
+            {
+                img5 = img5;
+                Die5.Background = Empty;
+            }
+            else
+            {
+                img5.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow5}.png"));
+                DieSlot5.Background = DieSlotImage;
+                Die5.Background = img5;
+            }
+
+            Trace.WriteLine($"DieThrow1 = {DieThrow1}");
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -95,12 +154,10 @@ namespace Yatzy
         private void DieSlot1_Click(object sender, RoutedEventArgs e)
         {
             // Empties the DieSlot
-            ImageBrush DieSlotImage = new ImageBrush();
             DieSlotImage.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/DieSlot.png"));
             DieSlot1.Background = DieSlotImage;
 
             // Returns the Die
-            ImageBrush img1 = new ImageBrush();
             img1.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/Die{DieThrow1}.png"));
             Die1.Background = img1;
         }
@@ -160,50 +217,45 @@ namespace Yatzy
         private void Die1_Click(object sender, RoutedEventArgs e)
         {
             // Adds the Die to the DieSlot
-            DieSlot1.Background = Die1.Background;
+            DieSlot1.Background = img1;
 
             // Removes the Dies image
-            ImageBrush Empty = new ImageBrush();
             Die1.Background = Empty;
         }
 
         private void Die2_Click(object sender, RoutedEventArgs e)
         {
             // Adds the Die to the DieSlot
-            DieSlot2.Background = Die2.Background;
+            DieSlot2.Background = img2;
 
             // Removes the Dies image
-            ImageBrush Empty = new ImageBrush();
             Die2.Background = Empty;
         }
 
         private void Die3_Click(object sender, RoutedEventArgs e)
         {
             // Adds the Die to the DieSlot
-            DieSlot3.Background = Die3.Background;
+            DieSlot3.Background = img3;
 
             // Removes the Dies image
-            ImageBrush Empty = new ImageBrush();
             Die3.Background = Empty;
         }
 
         private void Die4_Click(object sender, RoutedEventArgs e)
         {
             // Adds the Die to the DieSlot
-            DieSlot4.Background = Die4.Background;
+            DieSlot4.Background = img4;
 
             // Removes the Dies image
-            ImageBrush Empty = new ImageBrush();
             Die4.Background = Empty;
         }
 
         private void Die5_Click(object sender, RoutedEventArgs e)
         {
             // Adds the Die to the DieSlot
-            DieSlot5.Background = Die5.Background;
+            DieSlot5.Background = img5;
 
             // Removes the Dies image
-            ImageBrush Empty = new ImageBrush();
             Die5.Background = Empty;
         }
     }
