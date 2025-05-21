@@ -219,7 +219,8 @@
                 <ImageBrush ImageSource="/Assets/DieSlot.png"/>
             </Button.Background>
         </Button>
-        <Popup x:Name="InformationPopUp" Width="1024" Height="576" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="119,78,0,0" IsLightDismissEnabled="True" IsOpen="False">
+        <Rectangle x:Name="BlurRectangle" Height="720" Stroke="Black" Width="1280" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Center" d:IsHidden="True" Opacity="0.5" Grid.ColumnSpan="2"/>
+        <Popup x:Name="InformationPopUp" Width="1024" Height="576" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="119,78,0,0" IsLightDismissEnabled="False" IsOpen="False">
             <StackPanel Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid Width="1024" Height="576" Background="#FFA3A3A3" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="1,1,1,1">
                     <TextBlock x:Name="InformationTitleText" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" FontSize="70"/>

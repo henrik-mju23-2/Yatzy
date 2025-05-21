@@ -45,6 +45,7 @@ namespace Yatzy
         public GamePage()
         {
             this.InitializeComponent();
+            BlurRectangle.Visibility = Visibility.Collapsed;
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
@@ -144,11 +145,13 @@ namespace Yatzy
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             InformationPopUp.IsOpen = true;
+            BlurRectangle.Visibility = Visibility.Visible;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             InformationPopUp.IsOpen = false;
+            BlurRectangle.Visibility = Visibility.Collapsed;
         }
 
         private void DieSlot1_Click(object sender, RoutedEventArgs e)

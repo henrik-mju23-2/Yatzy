@@ -25,21 +25,26 @@ namespace Yatzy
         public ConfigurationPage()
         {
             this.InitializeComponent();
+            BlurRectangle.Visibility = Visibility.Collapsed;
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             InformationPopUp.IsOpen = true;
+            BlurRectangle.Visibility = Visibility.Visible;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             InformationPopUp.IsOpen = false;
+            BlurRectangle.Visibility = Visibility.Collapsed;
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePage));
         }
+
+
     }
 }
