@@ -32,10 +32,15 @@ namespace Yatzy
         public int DieThrow4;
         public int DieThrow5;
 
+
         int Int2;
         bool isInt2Set = false;
 
+        int Int3;
+        bool isInt3Set = false;
+
         bool isOnesButtonAllowedToBeEnabled = true;
+        bool isOnePairButtonAllowedToBeEnabled = true;
 
         bool doesDieThrow1Equal1 = false;
         bool doesDieThrow2Equal1 = false;
@@ -48,6 +53,14 @@ namespace Yatzy
         public int Throw3;
         public int Throw4; 
         public int Throw5;
+
+        // Count pairs
+        public int count1;
+        public int count2;
+        public int count3;
+        public int count4;
+        public int count5;
+        public int count6;
 
         // Background for empty Die
         ImageBrush Empty = new ImageBrush();
@@ -69,7 +82,13 @@ namespace Yatzy
 
             OnesTextBlock.Visibility = Visibility.Collapsed;
 
+            OnePairTextBlock.Visibility = Visibility.Collapsed;
+
             OnesButton.IsEnabled = false;
+
+            OnePairButton.IsEnabled = false;
+
+
 
         }
 
@@ -99,62 +118,68 @@ namespace Yatzy
             DieThrow5 = rnd.Next(1, 7);
             Die5.Background = Empty;
 
+            Throw1 = DieThrow1;
+            Throw2 = DieThrow2;
+            Throw3 = DieThrow3;
+            Throw4 = DieThrow4;
+            Throw5 = DieThrow5;
+
 
             // Might be unnecessary
-            if (DieThrow1 == 1)
-            {
-                Throw1 = 1;
-                doesDieThrow1Equal1 = true;
-            }
-            else
-            {
-                Throw1 = 0;
-                doesDieThrow1Equal1 = false;
-            }
+            //if (DieThrow1 == 1)
+            //{
+            //    Throw1 = 1;
+            //    doesDieThrow1Equal1 = true;
+            //}
+            //else
+            //{
+            //    Throw1 = 0;
+            //    doesDieThrow1Equal1 = false;
+            //}
 
-            if (DieThrow2 == 1)
-            {
-                Throw2 = 1;
-                doesDieThrow2Equal1 = true;
-            }
-            else
-            {
-                Throw2 = 0;
-                doesDieThrow2Equal1 = false;
-            }
+            //if (DieThrow2 == 1)
+            //{
+            //    Throw2 = 1;
+            //    doesDieThrow2Equal1 = true;
+            //}
+            //else
+            //{
+            //    Throw2 = 0;
+            //    doesDieThrow2Equal1 = false;
+            //}
 
-            if (DieThrow3 == 1)
-            {
-                Throw3 = 1;
-                doesDieThrow3Equal1 = true;
-            }
-            else
-            {
-                Throw3 = 0;
-                doesDieThrow3Equal1 = false;
-            }
+            //if (DieThrow3 == 1)
+            //{
+            //    Throw3 = 1;
+            //    doesDieThrow3Equal1 = true;
+            //}
+            //else
+            //{
+            //    Throw3 = 0;
+            //    doesDieThrow3Equal1 = false;
+            //}
 
-            if (DieThrow4 == 1)
-            {
-                Throw4 = 1;
-                doesDieThrow4Equal1 = true;
-            }
-            else
-            {
-                Throw4 = 0;
-                doesDieThrow4Equal1 = false;
-            }
+            //if (DieThrow4 == 1)
+            //{
+            //    Throw4 = 1;
+            //    doesDieThrow4Equal1 = true;
+            //}
+            //else
+            //{
+            //    Throw4 = 0;
+            //    doesDieThrow4Equal1 = false;
+            //}
 
-            if (DieThrow5 == 1)
-            {
-                Throw5 = 1;
-                doesDieThrow5Equal1 = true;
-            }
-            else
-            {
-                Throw5 = 0;
-                doesDieThrow5Equal1 = false;
-            }
+            //if (DieThrow5 == 1)
+            //{
+            //    Throw5 = 1;
+            //    doesDieThrow5Equal1 = true;
+            //}
+            //else
+            //{
+            //    Throw5 = 0;
+            //    doesDieThrow5Equal1 = false;
+            //}
 
             // TODO: Rewrite this code to use fewer lines
 
@@ -221,9 +246,51 @@ namespace Yatzy
                 Die5.Background = img5;
             }
 
+            // Count pairs
+            count1 = 0;
+            count2 = 0;
+            count3 = 0;
+            count4 = 0;
+            count5 = 0;
+            count6 = 0;
+
+            // Count each value
+            int[] throws = { Throw1, Throw2, Throw3, Throw4, Throw5 };
+            foreach (int value in throws)
+            {
+                switch (value)
+                {
+                    case 1: count1++; break;
+                    case 2: count2++; break;
+                    case 3: count3++; break;
+                    case 4: count4++; break;
+                    case 5: count5++; break;
+                    case 6: count6++; break;
+                }
+            }
+
+            // Output results
+            Trace.WriteLine($"Throws: {Throw1}, {Throw2}, {Throw3}, {Throw4}, {Throw5}");
+            Trace.WriteLine("Grouped Matches:");
+            if (count1 > 1) Trace.WriteLine($"{count1} of value 1");
+            if (count2 > 1) Trace.WriteLine($"{count2} of value 2");
+            if (count3 > 1) Trace.WriteLine($"{count3} of value 3");
+            if (count4 > 1) Trace.WriteLine($"{count4} of value 4");
+            if (count5 > 1) Trace.WriteLine($"{count5} of value 5");
+            if (count6 > 1) Trace.WriteLine($"{count6} of value 6");
+
+            // Optionally handle no matches
+            if (count1 <= 1 && count2 <= 1 && count3 <= 1 &&
+                count4 <= 1 && count5 <= 1 && count6 <= 1)
+            {
+                Trace.WriteLine("No matching values.");
+            }
+
+
+            // Ones
             if (isOnesButtonAllowedToBeEnabled == true && (DieThrow1 == 1 || DieThrow2 == 1 || DieThrow3 == 1 || DieThrow4 == 1 || DieThrow5 == 1))
             {
-                OnesButton.Content = Throw1 + Throw2 + Throw3 + Throw4 + Throw5;
+                OnesButton.Content = count1;
                 OnesButton.IsEnabled = true;
             }
             else if (isOnesButtonAllowedToBeEnabled == false)
@@ -235,12 +302,29 @@ namespace Yatzy
                 OnesButton.IsEnabled = false;
             }
 
-            Trace.WriteLine($"Int2 = {Int2}");
 
-            Trace.WriteLine($"DieThrow1 = {DieThrow1}");
-            Trace.WriteLine($"DieThrow2 = {DieThrow2}");
+            // One Pair
+            if (isOnePairButtonAllowedToBeEnabled == true && DieThrow1 == 1 && DieThrow2 == 1)
+            {
+                OnePairButton.Content = Throw1 + Throw2;
+                OnePairButton.IsEnabled = true;
+            }
+            else if(isOnePairButtonAllowedToBeEnabled == false)
+            {
+                OnePairButton.IsEnabled = false;
+            }
+            else
+            {
+                OnePairButton.IsEnabled= false;
+            }
 
-            Trace.WriteLine($"isOnesButtonAllowedToBeEnabled = {isOnesButtonAllowedToBeEnabled}");
+            Trace.WriteLine($"count1 = {count1}");
+            //Trace.WriteLine($"Int2 = {Int2}");
+
+            //Trace.WriteLine($"DieThrow1 = {DieThrow1}");
+            //Trace.WriteLine($"DieThrow2 = {DieThrow2}");
+
+            //Trace.WriteLine($"isOnesButtonAllowedToBeEnabled = {isOnesButtonAllowedToBeEnabled}");
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -367,12 +451,26 @@ namespace Yatzy
         {
             if (!isInt2Set && OnesButton.IsEnabled == true)
             {
-                Int2 = Throw1 + Throw2 + Throw3 + Throw4 + Throw5;
+                Trace.WriteLine($"count 1 again = {count1}");
+                Int2 = count1;
                 isInt2Set = true;
                 isOnesButtonAllowedToBeEnabled = false;
                 OnesButton.IsEnabled = false;
                 OnesTextBlock.Text = $"{Int2}";
                 OnesTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void OnePairButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(!isInt3Set && OnePairButton.IsEnabled == true)
+            {
+                Int3 = Throw1 + Throw2;
+                isInt3Set = true;
+                isOnePairButtonAllowedToBeEnabled = false;
+                OnePairButton.IsEnabled = false;
+                OnePairTextBlock.Text = $"{Int3}";
+                OnePairTextBlock.Visibility = Visibility.Visible;
             }
         }
     }
