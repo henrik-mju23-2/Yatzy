@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -139,7 +140,14 @@ namespace Yatzy
                 Die5.Background = img5;
             }
 
-            Trace.WriteLine($"DieThrow1 = {DieThrow1}");
+            if (DieThrow1 == 1)
+            {
+                OnesButton.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+            }
+            else
+            {
+                OnesButton.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            }
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -260,6 +268,11 @@ namespace Yatzy
 
             // Removes the Dies image
             Die5.Background = Empty;
+        }
+
+        private void OnesButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

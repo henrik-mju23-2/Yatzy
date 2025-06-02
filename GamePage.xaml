@@ -137,7 +137,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="504,412,0,0" TextWrapping="Wrap" Text="Tretal" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="504,440,0,0" TextWrapping="Wrap" Text="Fyrtal" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="504,472,0,0" TextWrapping="Wrap" Text="Kåk" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="504,502,0,0" TextWrapping="Wrap" Text="Liten Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,503,0,0" TextWrapping="Wrap" Text="Liten Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="504,530,0,0" TextWrapping="Wrap" Text="Stor Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="504,530,0,0" TextWrapping="Wrap" Text="Stor Stege" VerticalAlignment="Top" Foreground="Black" FontSize="24" Height="31" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
         <Rectangle x:Name="Line_Copy17" HorizontalAlignment="Left" Height="1" Margin="497,626,0,0" VerticalAlignment="Top" Width="254" Fill="Black" Stroke="Black" Grid.Column="1"/>
@@ -231,6 +231,21 @@
                 </Grid>
             </StackPanel>
         </Popup>
+        <Button x:Name="OnesButton" Grid.Column="1" Content="Ones" Margin="621,108,0,0" VerticalAlignment="Top" Foreground="Black" BorderBrush="White" FocusVisualSecondaryBrush="{x:Null}" Click="OnesButton_Click" Background="White" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="TwosButton" Grid.Column="1" Content="Ones" Margin="624,142,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="ThreesButton" Grid.Column="1" Content="Ones" Margin="623,178,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="FoursButton" Grid.Column="1" Content="Ones" Margin="624,203,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="FivesButton" Grid.Column="1" Content="Ones" Margin="624,236,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="SixesButton" Grid.Column="1" Content="Ones" Margin="624,264,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="OnePairButton" Grid.Column="1" Content="Ones" Margin="626,356,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="TwoPairsButton" Grid.Column="1" Content="Ones" Margin="625,384,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="ThreePairsButton" Grid.Column="1" Content="Ones" Margin="623,416,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="FourPairsButton" Grid.Column="1" Content="Ones" Margin="623,444,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="FullHouseButton" Grid.Column="1" Content="Ones" Margin="623,475,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="625,505,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="626,535,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="ChanceButton" Grid.Column="1" Content="Ones" Margin="626,561,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="YatzyButton" Grid.Column="1" Content="Ones" Margin="626,591,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
 
     </Grid>
 </Page>
