@@ -37,6 +37,18 @@ namespace Yatzy
 
         bool isOnesButtonAllowedToBeEnabled = true;
 
+        bool doesDieThrow1Equal1 = false;
+        bool doesDieThrow2Equal1 = false;
+        bool doesDieThrow3Equal1 = false;
+        bool doesDieThrow4Equal1 = false;
+        bool doesDieThrow5Equal1 = false;
+
+        public int Throw1;
+        public int Throw2;
+        public int Throw3;
+        public int Throw4; 
+        public int Throw5;
+
         // Background for empty Die
         ImageBrush Empty = new ImageBrush();
 
@@ -86,6 +98,63 @@ namespace Yatzy
 
             DieThrow5 = rnd.Next(1, 7);
             Die5.Background = Empty;
+
+
+            // Might be unnecessary
+            if (DieThrow1 == 1)
+            {
+                Throw1 = 1;
+                doesDieThrow1Equal1 = true;
+            }
+            else
+            {
+                Throw1 = 0;
+                doesDieThrow1Equal1 = false;
+            }
+
+            if (DieThrow2 == 1)
+            {
+                Throw2 = 1;
+                doesDieThrow2Equal1 = true;
+            }
+            else
+            {
+                Throw2 = 0;
+                doesDieThrow2Equal1 = false;
+            }
+
+            if (DieThrow3 == 1)
+            {
+                Throw3 = 1;
+                doesDieThrow3Equal1 = true;
+            }
+            else
+            {
+                Throw3 = 0;
+                doesDieThrow3Equal1 = false;
+            }
+
+            if (DieThrow4 == 1)
+            {
+                Throw4 = 1;
+                doesDieThrow4Equal1 = true;
+            }
+            else
+            {
+                Throw4 = 0;
+                doesDieThrow4Equal1 = false;
+            }
+
+            if (DieThrow5 == 1)
+            {
+                Throw5 = 1;
+                doesDieThrow5Equal1 = true;
+            }
+            else
+            {
+                Throw5 = 0;
+                doesDieThrow5Equal1 = false;
+            }
 
             // TODO: Rewrite this code to use fewer lines
 
@@ -152,10 +221,14 @@ namespace Yatzy
                 Die5.Background = img5;
             }
 
-            if (DieThrow1 == 1 && isOnesButtonAllowedToBeEnabled == true)
+            if (isOnesButtonAllowedToBeEnabled == true && (DieThrow1 == 1 || DieThrow2 == 1 || DieThrow3 == 1 || DieThrow4 == 1 || DieThrow5 == 1))
             {
-                OnesButton.Content = DieThrow1;
+                OnesButton.Content = Throw1 + Throw2 + Throw3 + Throw4 + Throw5;
                 OnesButton.IsEnabled = true;
+            }
+            else if (isOnesButtonAllowedToBeEnabled == false)
+            {
+                OnesButton.IsEnabled = false;
             }
             else
             {
@@ -163,6 +236,11 @@ namespace Yatzy
             }
 
             Trace.WriteLine($"Int2 = {Int2}");
+
+            Trace.WriteLine($"DieThrow1 = {DieThrow1}");
+            Trace.WriteLine($"DieThrow2 = {DieThrow2}");
+
+            Trace.WriteLine($"isOnesButtonAllowedToBeEnabled = {isOnesButtonAllowedToBeEnabled}");
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -287,9 +365,9 @@ namespace Yatzy
 
         private void OnesButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!isInt2Set && OnesButton.IsEnabled)
+            if (!isInt2Set && OnesButton.IsEnabled == true)
             {
-                Int2 = DieThrow1;
+                Int2 = Throw1 + Throw2 + Throw3 + Throw4 + Throw5;
                 isInt2Set = true;
                 isOnesButtonAllowedToBeEnabled = false;
                 OnesButton.IsEnabled = false;
