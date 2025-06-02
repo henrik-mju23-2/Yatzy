@@ -32,6 +32,11 @@ namespace Yatzy
         public int DieThrow4;
         public int DieThrow5;
 
+        int Int2;
+        bool isInt2Set = false;
+
+        bool isOnesButtonAllowedToBeEnabled = true;
+
         // Background for empty Die
         ImageBrush Empty = new ImageBrush();
 
@@ -43,10 +48,17 @@ namespace Yatzy
 
         ImageBrush DieSlotImage = new ImageBrush();
 
+        
+
         public GamePage()
         {
             this.InitializeComponent();
             BlurRectangle.Visibility = Visibility.Collapsed;
+
+            OnesTextBlock.Visibility = Visibility.Collapsed;
+
+            OnesButton.IsEnabled = false;
+
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
@@ -140,14 +152,17 @@ namespace Yatzy
                 Die5.Background = img5;
             }
 
-            if (DieThrow1 == 1)
+            if (DieThrow1 == 1 && isOnesButtonAllowedToBeEnabled == true)
             {
-                OnesButton.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                OnesButton.Content = DieThrow1;
+                OnesButton.IsEnabled = true;
             }
             else
             {
-                OnesButton.Background = new SolidColorBrush(Windows.UI.Colors.White);
+                OnesButton.IsEnabled = false;
             }
+
+            Trace.WriteLine($"Int2 = {Int2}");
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -272,7 +287,15 @@ namespace Yatzy
 
         private void OnesButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!isInt2Set && OnesButton.IsEnabled)
+            {
+                Int2 = DieThrow1;
+                isInt2Set = true;
+                isOnesButtonAllowedToBeEnabled = false;
+                OnesButton.IsEnabled = false;
+                OnesTextBlock.Text = $"{Int2}";
+                OnesTextBlock.Visibility = Visibility.Visible;
+            }
         }
     }
 }
