@@ -304,14 +304,14 @@
         <Button x:Name="FivesButton" Grid.Column="1" Content="Ones" Margin="620,236,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="FivesButton_Click_1" Style="{StaticResource AccentButtonStyle}"/>
         <Button x:Name="SixesButton" Grid.Column="1" Content="Ones" Margin="621,264,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="SixesButton_Click_1" Style="{StaticResource AccentButtonStyle}"/>
         <Button x:Name="OnePairButton" Grid.Column="1" Content="Ones" Margin="621,356,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="OnePairButton_Click" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="TwoPairsButton" Grid.Column="1" Content="Ones" Margin="625,384,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="ThreePairsButton" Grid.Column="1" Content="Ones" Margin="623,416,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="FourPairsButton" Grid.Column="1" Content="Ones" Margin="623,444,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="FullHouseButton" Grid.Column="1" Content="Ones" Margin="623,475,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="625,505,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="626,535,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="ChanceButton" Grid.Column="1" Content="Ones" Margin="626,561,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="YatzyButton" Grid.Column="1" Content="Ones" Margin="626,591,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="TwoPairsButton" Grid.Column="1" Content="Ones" Margin="621,384,0,0" VerticalAlignment="Top" Foreground="White" Background="#FCFF0000" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="ThreePairsButton" Grid.Column="1" Content="Ones" Margin="621,416,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="FourPairsButton" Grid.Column="1" Content="Ones" Margin="621,444,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="FullHouseButton" Grid.Column="1" Content="Ones" Margin="621,475,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="621,505,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="621,535,0,0" VerticalAlignment="Top" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="ChanceButton" Grid.Column="1" Content="Ones" Margin="621,561,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="YatzyButton" Grid.Column="1" Content="Ones" Margin="621,591,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
         <TextBlock x:Name="OnesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,115,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock x:Name="OnePairTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,363,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock x:Name="TwosTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,146,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
@@ -319,6 +319,14 @@
         <TextBlock x:Name="FoursTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,213,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock x:Name="FivesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,240,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock x:Name="SixesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,270,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="TwoPairsTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,390,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="ThreePairsTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,422,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="FourPairsTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,452,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="FullHouseTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,483,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="SmallStraightTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,508,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="LargeStraightTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,541,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="ChanceTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,570,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="YatzyTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,598,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
 
     </Grid>
 </Page>

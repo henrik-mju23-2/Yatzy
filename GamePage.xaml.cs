@@ -46,8 +46,8 @@ namespace Yatzy
         int SixesInt;
         bool isSixesIntSet = false;
 
-        int Int3;
-        bool isInt3Set = false;
+        int OnePairInt;
+        bool isOnePairIntSet = false;
 
         bool isOnesButtonAllowedToBeEnabled = true;
         bool isTwosButtonAllowedToBeEnabled = true;
@@ -77,6 +77,14 @@ namespace Yatzy
         public int count4;
         public int count5;
         public int count6;
+
+        // Sum of pairs, full house and Yatzy
+        public int sumOfPair;
+        public int sumOfTwoPairs;
+        public int sumOfThree;
+        public int sumOfFour;
+        public int fullHouseScore;
+        public int yahtzeeScore;
 
         // Background for empty Die
         ImageBrush Empty = new ImageBrush();
@@ -290,6 +298,14 @@ namespace Yatzy
             count5 = 0;
             count6 = 0;
 
+            // Sum of pairs, full house and Yatzy
+            sumOfPair = 0;
+            sumOfTwoPairs = 0;
+            sumOfThree = 0;
+            sumOfFour = 0;
+            fullHouseScore = 0;
+            yahtzeeScore = 0;
+
             // Show rolls
             Trace.WriteLine($"Throws: {Throw1}, {Throw2}, {Throw3}, {Throw4}, {Throw5}");
 
@@ -363,6 +379,79 @@ namespace Yatzy
             Trace.WriteLine($"Yahtzee: {(yahtzee ? "Yes" : "No")}");
             Trace.WriteLine($"Small Straight: {(smallStraight ? "Yes" : "No")}");
             Trace.WriteLine($"Large Straight: {(largeStraight ? "Yes" : "No")}");
+
+            // Sum values of pairs
+
+            List<int> pairValues = new List<int>();
+            int threeOfAKindValue = 0;
+            int fourOfAKindValue = 0;
+
+            for (int i = 0; i < counts.Length; i++)
+            {
+                if (counts[i] == 2)
+                {
+                    pairCount++;
+                    pairValues.Add(i + 1); // i + 1 corresponds to the dice value
+                }
+                if (counts[i] == 3)
+                {
+                    threeOfKindCount++;
+                    threeOfAKindValue = i + 1;
+                }
+                if (counts[i] == 4)
+                {
+                    fourOfKindCount++;
+                    fourOfAKindValue = i + 1;
+                }
+                if (counts[i] == 5)
+                {
+                    yahtzee = true;
+                }
+            }
+
+            // Pair sum (if exactly one pair)
+            if (pairValues.Count == 1)
+            {
+                int value = pairValues[0];
+                sumOfPair = value * 2;
+            }
+
+            // Two Pairs
+            if (pairValues.Count == 2)
+            {
+                sumOfTwoPairs = (pairValues[0] * 2) + (pairValues[1] * 2);
+            }
+
+            // Three of a Kind
+            if (threeOfKindCount > 0)
+            {
+                sumOfThree = threeOfAKindValue * 3;
+            }
+
+            // Four of a Kind
+            if (fourOfKindCount > 0)
+            {
+                sumOfFour = fourOfAKindValue * 4;
+            }
+
+            // Full house
+            fullHouse = (pairCount == 1 && threeOfKindCount == 1);
+
+            if (fullHouse)
+                fullHouseScore = 25;
+
+            // Yatzy
+            yahtzee = counts.Any(count => count == 5);
+            if (yahtzee)
+                yahtzeeScore = 50;
+
+            Trace.WriteLine($"\nMatch Sums:");
+            Trace.WriteLine($"Sum of Pair: {sumOfPair}");
+            Trace.WriteLine($"Sum of Two Pairs: {sumOfTwoPairs}");
+            Trace.WriteLine($"Sum of Three of a Kind: {sumOfThree}");
+            Trace.WriteLine($"Sum of Four of a Kind: {sumOfFour}");
+            Trace.WriteLine($"Full House Score: {fullHouseScore}");
+            Trace.WriteLine($"Yahtzee Score: {yahtzeeScore}");
 
 
             // Optionally handle no matches
@@ -464,9 +553,9 @@ namespace Yatzy
             }
 
             // One Pair
-            if (isOnePairButtonAllowedToBeEnabled == true && DieThrow1 == 1 && DieThrow2 == 1)
+            if (isOnePairButtonAllowedToBeEnabled == true && sumOfPair > 0)
             {
-                OnePairButton.Content = Throw1 + Throw2;
+                OnePairButton.Content = sumOfPair;
                 OnePairButton.IsEnabled = true;
             }
             else if(isOnePairButtonAllowedToBeEnabled == false)
@@ -478,7 +567,7 @@ namespace Yatzy
                 OnePairButton.IsEnabled= false;
             }
 
-            Trace.WriteLine($"count1 = {count1}");
+            // Trace.WriteLine($"count1 = {count1}");
             //Trace.WriteLine($"Int2 = {Int2}");
 
             //Trace.WriteLine($"DieThrow1 = {DieThrow1}");
@@ -687,13 +776,13 @@ namespace Yatzy
 
         private void OnePairButton_Click(object sender, RoutedEventArgs e)
         {
-            if(!isInt3Set && OnePairButton.IsEnabled == true)
+            if(!isOnePairIntSet && OnePairButton.IsEnabled == true)
             {
-                Int3 = Throw1 + Throw2;
-                isInt3Set = true;
+                OnePairInt = sumOfPair;
+                isOnePairIntSet = true;
                 isOnePairButtonAllowedToBeEnabled = false;
                 OnePairButton.IsEnabled = false;
-                OnePairTextBlock.Text = $"{Int3}";
+                OnePairTextBlock.Text = $"{OnePairInt}";
                 OnePairTextBlock.Visibility = Visibility.Visible;
             }
         }
