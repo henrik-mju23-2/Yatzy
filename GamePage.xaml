@@ -307,7 +307,7 @@
         <Button x:Name="TwoPairsButton" Grid.Column="1" Content="Ones" Margin="621,384,0,0" VerticalAlignment="Top" Foreground="White" Background="#FCFF0000" Style="{StaticResource AccentButtonStyle}" Click="TwoPairsButton_Click"/>
         <Button x:Name="ThreePairsButton" Grid.Column="1" Content="Ones" Margin="621,416,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="ThreePairsButton_Click"/>
         <Button x:Name="FourPairsButton" Grid.Column="1" Content="Ones" Margin="621,444,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="FourPairsButton_Click"/>
-        <Button x:Name="FullHouseButton" Grid.Column="1" Content="Ones" Margin="621,475,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="FullHouseButton" Grid.Column="1" Content="Ones" Margin="621,475,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="FullHouseButton_Click"/>
         <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="621,505,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
         <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="621,535,0,0" VerticalAlignment="Top" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
         <Button x:Name="ChanceButton" Grid.Column="1" Content="Ones" Margin="621,561,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
