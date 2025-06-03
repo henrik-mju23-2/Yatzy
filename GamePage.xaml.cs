@@ -72,6 +72,9 @@ namespace Yatzy
 
         bool isFullHouseButtonAllowedToBeEnabled = true;
 
+        bool isSmallStraightButtonAllowedToBeEnabled = true;
+        bool isLargeStraightButtonAllowedToBeEnabled = true;
+
         public int Throw1;
         public int Throw2;
         public int Throw3;
@@ -93,6 +96,17 @@ namespace Yatzy
         public int sumOfFour;
         public int fullHouseScore;
         public int yatzyScore;
+
+        // Small and large ltraights
+        bool smallStraight;
+        int smallStraightScoreInt = 15;
+        bool largeStraight;
+        int largeStraightScoreInt = 20;
+
+        int smallStraightInt;
+        bool isSmallStraightIntSet;
+        int largeStraightInt;
+        bool isLargeStraightIntSet;
 
         // Background for empty Die
         ImageBrush Empty = new ImageBrush();
@@ -134,6 +148,10 @@ namespace Yatzy
 
             FullHouseTextBlock.Visibility = Visibility.Collapsed;
 
+            SmallStraightTextBlock.Visibility = Visibility.Collapsed;
+
+            LargeStraightTextBlock.Visibility= Visibility.Collapsed;
+
             OnesButton.IsEnabled = false;
 
             TwosButton.IsEnabled = false;
@@ -155,6 +173,10 @@ namespace Yatzy
             FourPairsButton.IsEnabled = false;
 
             FullHouseButton.IsEnabled = false;
+
+            SmallLadderButton.IsEnabled = false;
+
+            LargeLadderButton.IsEnabled = false;
 
         }
 
@@ -316,14 +338,11 @@ namespace Yatzy
                 valuesPresent[value] = true;
             }
 
-            bool smallStraight =
-                (valuesPresent[1] && valuesPresent[2] && valuesPresent[3] && valuesPresent[4]) ||
-                (valuesPresent[2] && valuesPresent[3] && valuesPresent[4] && valuesPresent[5]) ||
-                (valuesPresent[3] && valuesPresent[4] && valuesPresent[5] && valuesPresent[6]);
+            smallStraight =
+                (valuesPresent[1] && valuesPresent[2] && valuesPresent[3] && valuesPresent[4]) && valuesPresent[5];
 
-            bool largeStraight =
-                (valuesPresent[1] && valuesPresent[2] && valuesPresent[3] && valuesPresent[4] && valuesPresent[5]) ||
-                (valuesPresent[2] && valuesPresent[3] && valuesPresent[4] && valuesPresent[5] && valuesPresent[6]);
+            largeStraight =
+                (valuesPresent[2] && valuesPresent[3] && valuesPresent[4] && valuesPresent[5]) && valuesPresent[6];
 
             // Output grouped results
             Trace.WriteLine("\nGrouped Matches:");
@@ -589,6 +608,39 @@ namespace Yatzy
             {
                 FullHouseButton.IsEnabled = false;
             }
+
+            // Small straight
+            if (isSmallStraightButtonAllowedToBeEnabled == true && smallStraight == true)
+            {
+                SmallLadderButton.Content = smallStraightScoreInt;
+                SmallLadderButton.IsEnabled = true;
+            }
+            else if (isSmallStraightButtonAllowedToBeEnabled == false)
+            {
+                SmallLadderButton.IsEnabled = false;
+            }
+            else
+            {
+                SmallLadderButton.IsEnabled = false;
+            }
+
+            // Large straight
+            if (isLargeStraightButtonAllowedToBeEnabled == true && largeStraight == true)
+            {
+                LargeLadderButton.Content = largeStraightScoreInt;
+                LargeLadderButton.IsEnabled = true;
+            }
+            else if (isLargeStraightButtonAllowedToBeEnabled == false)
+            {
+                LargeLadderButton.IsEnabled = false;
+            }
+            else
+            {
+                LargeLadderButton.IsEnabled = false;
+            }
+
+            Trace.WriteLine($"smallStraight = {smallStraight}");
+            Trace.WriteLine($"largeStraight = {largeStraight}");
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -851,6 +903,32 @@ namespace Yatzy
                 FullHouseButton.IsEnabled = false;
                 FullHouseTextBlock.Text = $"{FullHouseInt}";
                 FullHouseTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void SmallLadderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isSmallStraightIntSet && SmallLadderButton.IsEnabled == true)
+            {
+                smallStraightInt = smallStraightScoreInt;
+                isSmallStraightIntSet = true;
+                isSmallStraightButtonAllowedToBeEnabled = false;
+                SmallLadderButton.IsEnabled = false;
+                SmallStraightTextBlock.Text = $"{smallStraightInt}";
+                SmallStraightTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void LargeLadderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isLargeStraightIntSet && LargeLadderButton.IsEnabled == true)
+            {
+                largeStraightInt = largeStraightScoreInt;
+                isLargeStraightIntSet = true;
+                isLargeStraightButtonAllowedToBeEnabled = false;
+                LargeLadderButton.IsEnabled = false;
+                LargeStraightTextBlock.Text = $"{largeStraightInt}";
+                LargeStraightTextBlock.Visibility = Visibility.Visible;
             }
         }
     }

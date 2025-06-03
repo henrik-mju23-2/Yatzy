@@ -308,8 +308,8 @@
         <Button x:Name="ThreePairsButton" Grid.Column="1" Content="Ones" Margin="621,416,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="ThreePairsButton_Click"/>
         <Button x:Name="FourPairsButton" Grid.Column="1" Content="Ones" Margin="621,444,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="FourPairsButton_Click"/>
         <Button x:Name="FullHouseButton" Grid.Column="1" Content="Ones" Margin="621,475,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="FullHouseButton_Click"/>
-        <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="621,505,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="621,535,0,0" VerticalAlignment="Top" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="621,505,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="SmallLadderButton_Click"/>
+        <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="621,535,0,0" VerticalAlignment="Top" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="LargeLadderButton_Click"/>
         <Button x:Name="ChanceButton" Grid.Column="1" Content="Ones" Margin="621,561,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
         <Button x:Name="YatzyButton" Grid.Column="1" Content="Ones" Margin="621,591,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
         <TextBlock x:Name="OnesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,115,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
