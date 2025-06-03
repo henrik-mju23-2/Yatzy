@@ -75,6 +75,8 @@ namespace Yatzy
         bool isSmallStraightButtonAllowedToBeEnabled = true;
         bool isLargeStraightButtonAllowedToBeEnabled = true;
 
+        bool isYatzyButtonAllowedToBeEnabled = true;
+
         public int Throw1;
         public int Throw2;
         public int Throw3;
@@ -107,6 +109,10 @@ namespace Yatzy
         bool isSmallStraightIntSet;
         int largeStraightInt;
         bool isLargeStraightIntSet;
+
+        // Yatzy
+        int yatzyInt;
+        bool isYatzyIntSet;
 
         // Background for empty Die
         ImageBrush Empty = new ImageBrush();
@@ -152,6 +158,8 @@ namespace Yatzy
 
             LargeStraightTextBlock.Visibility= Visibility.Collapsed;
 
+            YatzyTextBlock.Visibility = Visibility.Collapsed;
+
             OnesButton.IsEnabled = false;
 
             TwosButton.IsEnabled = false;
@@ -178,6 +186,8 @@ namespace Yatzy
 
             LargeLadderButton.IsEnabled = false;
 
+            YatzyButton.IsEnabled = false;
+
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
@@ -198,10 +208,8 @@ namespace Yatzy
             DieThrow3 = rnd.Next(1, 7);
             Die3.Background = Empty;
 
-
             DieThrow4 = rnd.Next(1, 7);
             Die4.Background = Empty;
-
 
             DieThrow5 = rnd.Next(1, 7);
             Die5.Background = Empty;
@@ -639,8 +647,21 @@ namespace Yatzy
                 LargeLadderButton.IsEnabled = false;
             }
 
-            Trace.WriteLine($"smallStraight = {smallStraight}");
-            Trace.WriteLine($"largeStraight = {largeStraight}");
+            // Yatzy
+            if (isYatzyButtonAllowedToBeEnabled == true && yatzyScore == 50)
+            {
+                YatzyButton.Content = yatzyScore;
+                YatzyButton.IsEnabled = true;
+            }
+            else if (isYatzyButtonAllowedToBeEnabled == false)
+            {
+                YatzyButton.IsEnabled = false;
+            }
+            else
+            {
+                YatzyButton.IsEnabled = false;
+            }
+
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -929,6 +950,19 @@ namespace Yatzy
                 LargeLadderButton.IsEnabled = false;
                 LargeStraightTextBlock.Text = $"{largeStraightInt}";
                 LargeStraightTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void YatzyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isYatzyIntSet && YatzyButton.IsEnabled == true)
+            {
+                yatzyInt = yatzyScore;
+                isYatzyIntSet = true;
+                isYatzyButtonAllowedToBeEnabled = false;
+                YatzyButton.IsEnabled = false;
+                YatzyTextBlock.Text = $"{yatzyInt}";
+                YatzyTextBlock.Visibility = Visibility.Visible;
             }
         }
     }

@@ -311,7 +311,7 @@
         <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="621,505,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="SmallLadderButton_Click"/>
         <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="621,535,0,0" VerticalAlignment="Top" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="LargeLadderButton_Click"/>
         <Button x:Name="ChanceButton" Grid.Column="1" Content="Ones" Margin="621,561,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="YatzyButton" Grid.Column="1" Content="Ones" Margin="621,591,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="YatzyButton" Grid.Column="1" Content="Ones" Margin="621,591,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Style="{StaticResource AccentButtonStyle}" Click="YatzyButton_Click"/>
         <TextBlock x:Name="OnesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,115,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock x:Name="OnePairTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,363,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock x:Name="TwosTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,146,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
