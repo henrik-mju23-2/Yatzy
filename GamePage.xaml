@@ -7,13 +7,79 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style x:Key="AccentButtonStyleCopy" TargetType="Button">
+            <Setter Property="Foreground" Value="{ThemeResource AccentButtonForeground}"/>
+            <Setter Property="Background" Value="{ThemeResource AccentButtonBackground}"/>
+            <Setter Property="BackgroundSizing" Value="OuterBorderEdge"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource AccentButtonBorderBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter x:Name="ContentPresenter" AutomationProperties.AccessibilityView="Raw" Background="{TemplateBinding Background}" BackgroundSizing="{TemplateBinding BackgroundSizing}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" ContentTemplate="{TemplateBinding ContentTemplate}" CornerRadius="{TemplateBinding CornerRadius}" Content="{TemplateBinding Content}" ContentTransitions="{TemplateBinding ContentTransitions}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonBackgroundPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonBorderBrushPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonForegroundPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonBackgroundPressed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonBorderBrushPressed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonForegroundPressed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonBackgroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonBorderBrushDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentButtonForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ContentPresenter>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid Width="1280" Height="720" Background="#FFA3A3A3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="127*"/>
             <ColumnDefinition Width="193*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="InfoButton" Content="i" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" Height="75" Width="75" CornerRadius="15,15,15,15" BorderThickness="1,1,1,1" FontSize="70" FontFamily="Mongolian Baiti" Click="InfoButton_Click"/>
+        <Button x:Name="InfoButton" Content="i" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FF0062FF" BorderBrush="Black" Height="75" Width="75" CornerRadius="15,15,15,15" BorderThickness="1,1,1,1" FontSize="70" FontFamily="Mongolian Baiti" Click="InfoButton_Click" Style="{StaticResource AccentButtonStyle}"/>
         <Rectangle x:Name="Rectangle1" HorizontalAlignment="Left" Height="667" Stroke="Black" VerticalAlignment="Center" Width="888" Fill="#FF2BA748" RadiusX="15" RadiusY="15" Margin="96,0,0,0" Grid.ColumnSpan="2"/>
         <Rectangle x:Name="Rectangle1_Copy" HorizontalAlignment="Left" Height="667" Stroke="Black" VerticalAlignment="Center" Width="256" Fill="White" RadiusX="15" RadiusY="15" Margin="495,0,0,0" Grid.Column="1"/>
         <Rectangle x:Name="Rectangle1_Copy1" HorizontalAlignment="Left" Height="80" Stroke="Black" VerticalAlignment="Top" Width="256" Fill="#FF0062FF" RadiusX="15" RadiusY="15" Margin="495,26,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
@@ -183,38 +249,38 @@
         <Rectangle x:Name="Rectangle2_Copy23" HorizontalAlignment="Left" Height="21" Stroke="Black" VerticalAlignment="Top" Width="78" Fill="#FF0062FF" StrokeThickness="0" Margin="147,216,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="146,237,0,0" TextWrapping="Wrap" Text="Spelare 2" VerticalAlignment="Top" Foreground="Black" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="148,612,0,0" TextWrapping="Wrap" Text="Spelare 1" VerticalAlignment="Top" Foreground="Black" FontSize="20"/>
-        <Button x:Name="DieButton" Margin="318,518,0,0" VerticalAlignment="Top" Width="128" Height="128" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" Click="DieButton_Click" Grid.Column="1">
+        <Button x:Name="DieButton" Margin="318,518,0,0" VerticalAlignment="Top" Width="128" Height="128" CornerRadius="15,15,15,15" BorderBrush="Black" BorderThickness="1,1,1,1" Click="DieButton_Click" Grid.Column="1" Style="{StaticResource AccentButtonStyle}">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/DieButtonImage.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
         <TextBlock HorizontalAlignment="Left" Margin="354,481,0,0" TextWrapping="Wrap" Text="Rulla" VerticalAlignment="Top" Foreground="Black" FontSize="24" FontWeight="Bold" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
-        <Button x:Name="Die1" Content="" Margin="231,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="Die1_Click"/>
-        <Button x:Name="Die2" Content="" Margin="354,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="Die2_Click"/>
-        <Button x:Name="Die3" Content="" Margin="476,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.ColumnSpan="2" Click="Die3_Click"/>
-        <Button x:Name="Die4" Content="" Margin="100,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1" Click="Die4_Click"/>
-        <Button x:Name="Die5" Content="" Margin="233,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1" RenderTransformOrigin="0.12,0.42" Click="Die5_Click"/>
-        <Button x:Name="DieSlot1" Content="" Margin="281,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Click="DieSlot1_Click">
+        <Button x:Name="Die1" Content="" Margin="231,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="Die1_Click" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="Die2" Content="" Margin="354,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="Die2_Click" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="Die3" Content="" Margin="476,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.ColumnSpan="2" Click="Die3_Click" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="Die4" Content="" Margin="100,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1" Click="Die4_Click" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="Die5" Content="" Margin="233,318,0,0" VerticalAlignment="Top" Width="100" Height="100" Grid.Column="1" RenderTransformOrigin="0.12,0.42" Click="Die5_Click" Style="{StaticResource AccentButtonStyleCopy}"/>
+        <Button x:Name="DieSlot1" Content="" Margin="281,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Click="DieSlot1_Click" Style="{StaticResource AccentButtonStyle}">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/DieSlot.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="DieSlot2" Content="" Margin="386,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Click="DieSlot2_Click">
+        <Button x:Name="DieSlot2" Content="" Margin="386,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Click="DieSlot2_Click" Style="{StaticResource AccentButtonStyle}">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/DieSlot.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="DieSlot3" Content="" Margin="498,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.ColumnSpan="2" Click="DieSlot3_Click">
+        <Button x:Name="DieSlot3" Content="" Margin="498,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.ColumnSpan="2" Click="DieSlot3_Click" Style="{StaticResource AccentButtonStyle}">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/DieSlot.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="DieSlot4" Content="" Margin="100,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.Column="1" Click="DieSlot4_Click">
+        <Button x:Name="DieSlot4" Content="" Margin="100,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.Column="1" Click="DieSlot4_Click" Style="{StaticResource AccentButtonStyle}">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/DieSlot.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="DieSlot5" Content="" Margin="206,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.Column="1" Click="DieSlot5_Click">
+        <Button x:Name="DieSlot5" Content="" Margin="206,512,0,0" VerticalAlignment="Top" Width="85" Height="85" Grid.Column="1" Click="DieSlot5_Click" Style="{StaticResource AccentButtonStyle}">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/DieSlot.png"/>
             </Button.Background>
@@ -232,22 +298,27 @@
             </StackPanel>
         </Popup>
         <Button x:Name="OnesButton" Grid.Column="1" Content="Ones" Margin="621,108,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" FocusVisualSecondaryBrush="{x:Null}" Click="OnesButton_Click" Background="Red" Style="{StaticResource AccentButtonStyle}"/>
-        <Button x:Name="TwosButton" Grid.Column="1" Content="Ones" Margin="624,142,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="ThreesButton" Grid.Column="1" Content="Ones" Margin="623,178,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="FoursButton" Grid.Column="1" Content="Ones" Margin="624,203,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="FivesButton" Grid.Column="1" Content="Ones" Margin="624,236,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="SixesButton" Grid.Column="1" Content="Ones" Margin="624,264,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="OnePairButton" Grid.Column="1" Content="Ones" Margin="626,356,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="OnePairButton_Click"/>
-        <Button x:Name="TwoPairsButton" Grid.Column="1" Content="Ones" Margin="625,384,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="ThreePairsButton" Grid.Column="1" Content="Ones" Margin="623,416,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="FourPairsButton" Grid.Column="1" Content="Ones" Margin="623,444,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="FullHouseButton" Grid.Column="1" Content="Ones" Margin="623,475,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="625,505,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="626,535,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="ChanceButton" Grid.Column="1" Content="Ones" Margin="626,561,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
-        <Button x:Name="YatzyButton" Grid.Column="1" Content="Ones" Margin="626,591,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF"/>
+        <Button x:Name="TwosButton" Grid.Column="1" Content="Ones" Margin="621,142,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="TwosButton_Click_1" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="ThreesButton" Grid.Column="1" Content="Ones" Margin="621,178,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="ThreesButton_Click_1" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="FoursButton" Grid.Column="1" Content="Ones" Margin="621,203,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="FoursButton_Click_1" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="FivesButton" Grid.Column="1" Content="Ones" Margin="620,236,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="FivesButton_Click_1" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="SixesButton" Grid.Column="1" Content="Ones" Margin="621,264,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="SixesButton_Click_1" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="OnePairButton" Grid.Column="1" Content="Ones" Margin="621,356,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" Click="OnePairButton_Click" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="TwoPairsButton" Grid.Column="1" Content="Ones" Margin="625,384,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="ThreePairsButton" Grid.Column="1" Content="Ones" Margin="623,416,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="FourPairsButton" Grid.Column="1" Content="Ones" Margin="623,444,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="FullHouseButton" Grid.Column="1" Content="Ones" Margin="623,475,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="SmallLadderButton" Grid.Column="1" Content="Ones" Margin="625,505,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="LargeLadderButton" Grid.Column="1" Content="Ones" Margin="626,535,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="ChanceButton" Grid.Column="1" Content="Ones" Margin="626,561,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="YatzyButton" Grid.Column="1" Content="Ones" Margin="626,591,0,0" VerticalAlignment="Top" Foreground="Black" Background="#33FFFFFF" Style="{StaticResource AccentButtonStyle}"/>
         <TextBlock x:Name="OnesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,115,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock x:Name="OnePairTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,363,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="TwosTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,146,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="ThreesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,182,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="FoursTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,213,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="FivesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,240,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="SixesTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="627,270,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="Black"/>
 
     </Grid>
 </Page>
