@@ -48,6 +48,12 @@ namespace Yatzy
 
         int OnePairInt;
         bool isOnePairIntSet = false;
+        int TwoPairsInt;
+        bool isTwoPairsIntSet = false;
+        int ThreePairsInt;
+        bool isThreePairsIntSet = false;
+        int FourPairsInt;
+        bool isFourPairsIntSet = false;
 
         bool isOnesButtonAllowedToBeEnabled = true;
         bool isTwosButtonAllowedToBeEnabled = true;
@@ -57,6 +63,9 @@ namespace Yatzy
         bool isSixesButtonAllowedToBeEnabled = true;
 
         bool isOnePairButtonAllowedToBeEnabled = true;
+        bool isTwoPairsButtonAllowedToBeEnabled = true;
+        bool isThreePairsButtonAllowedToBeEnabled = true;
+        bool isFourPairsButtonAllowedToBeEnabled = true;
 
         bool doesDieThrow1Equal1 = false;
         bool doesDieThrow2Equal1 = false;
@@ -118,6 +127,12 @@ namespace Yatzy
 
             OnePairTextBlock.Visibility = Visibility.Collapsed;
 
+            TwoPairsTextBlock.Visibility = Visibility.Collapsed;
+
+            ThreePairsTextBlock.Visibility = Visibility.Collapsed;
+
+            FourPairsTextBlock.Visibility = Visibility.Collapsed;
+
             OnesButton.IsEnabled = false;
 
             TwosButton.IsEnabled = false;
@@ -132,7 +147,11 @@ namespace Yatzy
 
             OnePairButton.IsEnabled = false;
 
+            TwoPairsButton.IsEnabled = false;
 
+            ThreePairsButton.IsEnabled = false;
+
+            FourPairsButton.IsEnabled = false;
 
         }
 
@@ -567,6 +586,51 @@ namespace Yatzy
                 OnePairButton.IsEnabled= false;
             }
 
+            // Two Pairs
+            if (isTwoPairsButtonAllowedToBeEnabled == true && sumOfTwoPairs > 0)
+            {
+                TwoPairsButton.Content = sumOfTwoPairs;
+                TwoPairsButton.IsEnabled = true;
+            }
+            else if (isTwoPairsButtonAllowedToBeEnabled == false)
+            {
+                TwoPairsButton.IsEnabled = false;
+            }
+            else
+            {
+                TwoPairsButton.IsEnabled = false;
+            }
+
+            // Three pairs
+            if (isThreePairsButtonAllowedToBeEnabled == true && sumOfThree > 0)
+            {
+                ThreePairsButton.Content = sumOfThree;
+                ThreePairsButton.IsEnabled = true;
+            }
+            else if (isThreePairsButtonAllowedToBeEnabled == false)
+            {
+                ThreePairsButton.IsEnabled = false;
+            }
+            else
+            {
+                ThreePairsButton.IsEnabled = false;
+            }
+
+            // Four pairs
+            if (isFourPairsButtonAllowedToBeEnabled == true && sumOfFour > 0)
+            {
+                FourPairsButton.Content = sumOfFour;
+                FourPairsButton.IsEnabled = true;
+            }
+            else if (isFourPairsButtonAllowedToBeEnabled == false)
+            {
+                FourPairsButton.IsEnabled = false;
+            }
+            else
+            {
+                FourPairsButton.IsEnabled = false;
+            }
+
             // Trace.WriteLine($"count1 = {count1}");
             //Trace.WriteLine($"Int2 = {Int2}");
 
@@ -784,6 +848,45 @@ namespace Yatzy
                 OnePairButton.IsEnabled = false;
                 OnePairTextBlock.Text = $"{OnePairInt}";
                 OnePairTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void TwoPairsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isTwoPairsIntSet && TwoPairsButton.IsEnabled == true)
+            {
+                TwoPairsInt = sumOfTwoPairs;
+                isTwoPairsIntSet = true;
+                isTwoPairsButtonAllowedToBeEnabled = false;
+                TwoPairsButton.IsEnabled = false;
+                TwoPairsTextBlock.Text = $"{TwoPairsInt}";
+                TwoPairsTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ThreePairsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isThreePairsIntSet && ThreePairsButton.IsEnabled == true)
+            {
+                ThreePairsInt = sumOfThree;
+                isThreePairsIntSet = true;
+                isThreePairsButtonAllowedToBeEnabled = false;
+                ThreePairsButton.IsEnabled = false;
+                ThreePairsTextBlock.Text = $"{ThreePairsInt}";
+                ThreePairsTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void FourPairsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isFourPairsIntSet && FourPairsButton.IsEnabled == true)
+            {
+                FourPairsInt = sumOfFour;
+                isFourPairsIntSet = true;
+                isFourPairsButtonAllowedToBeEnabled = false;
+                FourPairsButton.IsEnabled = false;
+                FourPairsTextBlock.Text = $"{FourPairsInt}";
+                FourPairsTextBlock.Visibility = Visibility.Visible;
             }
         }
     }
