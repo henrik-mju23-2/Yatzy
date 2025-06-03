@@ -75,6 +75,8 @@ namespace Yatzy
         bool isSmallStraightButtonAllowedToBeEnabled = true;
         bool isLargeStraightButtonAllowedToBeEnabled = true;
 
+        bool isChanceButtonAllowedToBeEnabled = true;
+
         bool isYatzyButtonAllowedToBeEnabled = true;
 
         public int Throw1;
@@ -109,6 +111,11 @@ namespace Yatzy
         bool isSmallStraightIntSet;
         int largeStraightInt;
         bool isLargeStraightIntSet;
+
+        // Chance
+        int Chance;
+        int chanceInt;
+        bool isChanceIntSet;
 
         // Yatzy
         int yatzyInt;
@@ -158,6 +165,8 @@ namespace Yatzy
 
             LargeStraightTextBlock.Visibility= Visibility.Collapsed;
 
+            ChanceTextBlock.Visibility = Visibility.Collapsed;
+
             YatzyTextBlock.Visibility = Visibility.Collapsed;
 
             OnesButton.IsEnabled = false;
@@ -185,6 +194,8 @@ namespace Yatzy
             SmallLadderButton.IsEnabled = false;
 
             LargeLadderButton.IsEnabled = false;
+
+            ChanceButton.IsEnabled = false;
 
             YatzyButton.IsEnabled = false;
 
@@ -647,6 +658,27 @@ namespace Yatzy
                 LargeLadderButton.IsEnabled = false;
             }
 
+            // Chance
+            Chance = 0;
+            Chance = DieThrow1 + DieThrow2 + DieThrow3 + DieThrow4 + DieThrow5;
+
+            if (isChanceButtonAllowedToBeEnabled == true && Chance > 0)
+            {
+                ChanceButton.Content = Chance;
+                ChanceButton.IsEnabled = true;
+            }
+            else if (isChanceButtonAllowedToBeEnabled == false)
+            {
+                ChanceButton.IsEnabled = false;
+            }
+            else
+            {
+                ChanceButton.IsEnabled = false;
+            }
+
+            Trace.WriteLine($"Chance = {Chance}");
+
+
             // Yatzy
             if (isYatzyButtonAllowedToBeEnabled == true && yatzyScore == 50)
             {
@@ -963,6 +995,19 @@ namespace Yatzy
                 YatzyButton.IsEnabled = false;
                 YatzyTextBlock.Text = $"{yatzyInt}";
                 YatzyTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ChanceButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isChanceIntSet && ChanceButton.IsEnabled == true)
+            {
+                chanceInt = Chance;
+                isChanceIntSet = true;
+                isChanceButtonAllowedToBeEnabled = false;
+                ChanceButton.IsEnabled = false;
+                ChanceTextBlock.Text = $"{chanceInt}";
+                ChanceTextBlock.Visibility = Visibility.Visible;
             }
         }
     }
