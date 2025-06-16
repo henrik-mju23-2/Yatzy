@@ -209,6 +209,8 @@ namespace Yatzy
         private void DieButton_Click(object sender, RoutedEventArgs e)
         {
 
+            /// this can be added to the Tarning class
+
             // Rolls the dice and updates their background images
             DieThrow1 = rnd.Next(1, 7);
             Die1.Background = Empty;
@@ -315,6 +317,8 @@ namespace Yatzy
             // Show rolls
             Trace.WriteLine($"Throws: {Throw1}, {Throw2}, {Throw3}, {Throw4}, {Throw5}");
 
+            /// this could be added to the Regler Class
+
             // Count occurrences
             int[] throws = { Throw1, Throw2, Throw3, Throw4, Throw5 };
             foreach (int value in throws)
@@ -382,6 +386,8 @@ namespace Yatzy
             Trace.WriteLine($"Yatzy: {(yatzy ? "Yes" : "No")}");
             Trace.WriteLine($"Small Straight: {(smallStraight ? "Yes" : "No")}");
             Trace.WriteLine($"Large Straight: {(largeStraight ? "Yes" : "No")}");
+
+            /// this could also be added to the Regler Class
 
             // Sum values of pairs
 
@@ -455,13 +461,7 @@ namespace Yatzy
             Trace.WriteLine($"Yatzy Score: {yatzyScore}");
 
 
-            // Optionally handle no matches
-            //if (count1 <= 1 && count2 <= 1 && count3 <= 1 &&
-            //    count4 <= 1 && count5 <= 1 && count6 <= 1)
-            //{
-            //    Trace.WriteLine("No matching values.");
-            //}
-
+            /// this logic can probably stay
 
             // Ones
             if (isOnesButtonAllowedToBeEnabled == true && (DieThrow1 == 1 || DieThrow2 == 1 || DieThrow3 == 1 || DieThrow4 == 1 || DieThrow5 == 1))
