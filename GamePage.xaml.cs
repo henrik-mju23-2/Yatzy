@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Yatzy.YatzyGame;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -208,23 +209,23 @@ namespace Yatzy
 
         private void DieButton_Click(object sender, RoutedEventArgs e)
         {
-
-            /// this can be added to the Tarning class
+            // Instantiate Tarning
+            Tarning tarning = new Tarning();
 
             // Rolls the dice and updates their background images
-            DieThrow1 = rnd.Next(1, 7);
+            DieThrow1 = tarning.Roll();
             Die1.Background = Empty;
 
-            DieThrow2 = rnd.Next(1, 7);
+            DieThrow2 = tarning.Roll();
             Die2.Background = Empty;
 
-            DieThrow3 = rnd.Next(1, 7);
+            DieThrow3 = tarning.Roll();
             Die3.Background = Empty;
 
-            DieThrow4 = rnd.Next(1, 7);
+            DieThrow4 = tarning.Roll();
             Die4.Background = Empty;
 
-            DieThrow5 = rnd.Next(1, 7);
+            DieThrow5 = tarning.Roll();
             Die5.Background = Empty;
 
             Throw1 = DieThrow1;
@@ -232,8 +233,6 @@ namespace Yatzy
             Throw3 = DieThrow3;
             Throw4 = DieThrow4;
             Throw5 = DieThrow5;
-
-            // TODO: Rewrite this code to use fewer lines
 
             // Reset DieSlot images each dice roll
             DieSlotImage.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/DieSlot.png"));
