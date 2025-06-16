@@ -297,7 +297,7 @@ namespace Yatzy
                 Die5.Background = img5;
             }
 
-            // Count pairs
+            // Reset pair counter values
             count1 = 0;
             count2 = 0;
             count3 = 0;
@@ -305,7 +305,7 @@ namespace Yatzy
             count5 = 0;
             count6 = 0;
 
-            // Sum of pairs, full house and Yatzy
+            // Reset sum of pairs, full house and Yatzy values
             sumOfPair = 0;
             sumOfTwoPairs = 0;
             sumOfThree = 0;
@@ -318,7 +318,7 @@ namespace Yatzy
 
             /// this could be added to the Regler Class
 
-            // Count occurrences
+            // Count pair occurrences
             int[] throws = { Throw1, Throw2, Throw3, Throw4, Throw5 };
             foreach (int value in throws)
             {
@@ -335,7 +335,7 @@ namespace Yatzy
 
             int[] counts = { count1, count2, count3, count4, count5, count6 };
 
-            // Match analysis
+            // Reset values of Yatzy pairs 
             int pairCount = 0;
             int threeOfKindCount = 0;
             int fourOfKindCount = 0;
@@ -458,9 +458,6 @@ namespace Yatzy
             Trace.WriteLine($"Sum of Four of a Kind: {sumOfFour}");
             Trace.WriteLine($"Full House Score: {fullHouseScore}");
             Trace.WriteLine($"Yatzy Score: {yatzyScore}");
-
-
-            /// this logic can probably stay
 
             // Ones
             if (isOnesButtonAllowedToBeEnabled == true && (DieThrow1 == 1 || DieThrow2 == 1 || DieThrow3 == 1 || DieThrow4 == 1 || DieThrow5 == 1))
@@ -695,6 +692,8 @@ namespace Yatzy
 
         }
 
+        // Info button
+
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             InformationPopUp.IsOpen = true;
@@ -706,6 +705,8 @@ namespace Yatzy
             InformationPopUp.IsOpen = false;
             BlurRectangle.Visibility = Visibility.Collapsed;
         }
+
+        // Die and die-slot buttons
 
         private void DieSlot1_Click(object sender, RoutedEventArgs e)
         {
@@ -814,6 +815,8 @@ namespace Yatzy
             // Removes the Dies image
             Die5.Background = Empty;
         }
+
+        // Scoreboard buttons
 
         private void OnesButton_Click(object sender, RoutedEventArgs e)
         {
