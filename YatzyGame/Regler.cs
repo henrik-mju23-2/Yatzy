@@ -19,7 +19,6 @@ namespace Yatzy.YatzyGame
         public int Fives { get; private set; }
         public int Sixes { get; private set; }
         public int UpperTotal => Ones + Twos + Threes + Fours + Fives + Sixes;
-        public int UpperBonus => UpperTotal >= 63 ? 50 : 0;
 
         // Lower section flags and scores
         public bool IsPair { get; private set; }
@@ -154,7 +153,6 @@ namespace Yatzy.YatzyGame
             Console.WriteLine($"Fives: {Fives}");
             Console.WriteLine($"Sixes: {Sixes}");
             Console.WriteLine($"Upper Total: {UpperTotal}");
-            Console.WriteLine($"Bonus: {UpperBonus}");
 
             Console.WriteLine("\nLower Section:");
             Console.WriteLine($"Pair: {IsPair}, Sum: {SumOfPair}");

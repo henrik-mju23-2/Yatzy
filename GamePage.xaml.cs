@@ -21,9 +21,6 @@ using Yatzy.YatzyGame;
 
 namespace Yatzy
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class GamePage : Page
     {
         Random rnd = new Random();
@@ -314,18 +311,11 @@ namespace Yatzy
             yatzyScore = 0;
             Chance = 0;
 
-            // Reset values of Yatzy pairs 
-            int pairCount = 0;
-            int threeOfKindCount = 0;
-            int fourOfKindCount = 0;
+            // Reset value of yatzy
             bool yatzy = false;
+
+            // Reset value of fullHouse
             bool fullHouse = false;
-
-            //// Show rolls
-            //Trace.WriteLine($"Throws: {Throw1}, {Throw2}, {Throw3}, {Throw4}, {Throw5}");
-
-            /// this could be added to the Regler Class
-            /// 
 
             // Instantiate Regler using the die throws
             Regler regler = new Regler(
@@ -384,148 +374,7 @@ namespace Yatzy
 
             // Check chance value
             Chance = regler.ChanceScore;
-
-            //// Count pair occurrences
-            //int[] throws = { Throw1, Throw2, Throw3, Throw4, Throw5 };
-            //foreach (int value in throws)
-            //{
-            //    switch (value)
-            //    {
-            //        case 1: count1++; break;
-            //        case 2: count2++; break;
-            //        case 3: count3++; break;
-            //        case 4: count4++; break;
-            //        case 5: count5++; break;
-            //        case 6: count6++; break;
-            //    }
-            //}
-
-            //int[] counts = { count1, count2, count3, count4, count5, count6 };
-
-            //// Reset values of Yatzy pairs 
-            //int pairCount = 0;
-            //int threeOfKindCount = 0;
-            //int fourOfKindCount = 0;
-            //bool yatzy = false;
-            //bool fullHouse = false;
-
-            //foreach (int count in counts)
-            //{
-            //    if (count == 2) pairCount++;
-            //    if (count == 3) threeOfKindCount++;
-            //    if (count == 4) fourOfKindCount++;
-            //    if (count == 5) yatzy = true;
-            //}
-
-            //fullHouse = (pairCount == 1 && threeOfKindCount == 1);
-            //bool twoPair = (pairCount >= 2);
-
-            //// Detect small and large straights
-            //bool[] valuesPresent = new bool[7]; // index 0 unused
-            //foreach (int value in throws)
-            //{
-            //    valuesPresent[value] = true;
-            //}
-
-            //smallStraight =
-            //    (valuesPresent[1] && valuesPresent[2] && valuesPresent[3] && valuesPresent[4]) && valuesPresent[5];
-
-            //largeStraight =
-            //    (valuesPresent[2] && valuesPresent[3] && valuesPresent[4] && valuesPresent[5]) && valuesPresent[6];
-
-            //// Output grouped results
-            //Trace.WriteLine("\nGrouped Matches:");
-            //if (count1 > 1) Trace.WriteLine($"{count1} of value 1");
-            //if (count2 > 1) Trace.WriteLine($"{count2} of value 2");
-            //if (count3 > 1) Trace.WriteLine($"{count3} of value 3");
-            //if (count4 > 1) Trace.WriteLine($"{count4} of value 4");
-            //if (count5 > 1) Trace.WriteLine($"{count5} of value 5");
-            //if (count6 > 1) Trace.WriteLine($"{count6} of value 6");
-
-            //// Output patterns
-            //Trace.WriteLine("\nPattern Summary:");
-            //Trace.WriteLine($"Single Pairs: {pairCount}");
-            //Trace.WriteLine($"Two Pairs Present: {(twoPair ? "Yes" : "No")}");
-            //Trace.WriteLine($"Three of a Kind: {threeOfKindCount}");
-            //Trace.WriteLine($"Four of a Kind: {fourOfKindCount}");
-            //Trace.WriteLine($"Full House: {(fullHouse ? "Yes" : "No")}");
-            //Trace.WriteLine($"Yatzy: {(yatzy ? "Yes" : "No")}");
-            //Trace.WriteLine($"Small Straight: {(smallStraight ? "Yes" : "No")}");
-            //Trace.WriteLine($"Large Straight: {(largeStraight ? "Yes" : "No")}");
-
-            ///// this could also be added to the Regler Class
-
-            //// Sum values of pairs
-
-            //List<int> pairValues = new List<int>();
-            //int threeOfAKindValue = 0;
-            //int fourOfAKindValue = 0;
-
-            //for (int i = 0; i < counts.Length; i++)
-            //{
-            //    if (counts[i] == 2)
-            //    {
-            //        pairCount++;
-            //        pairValues.Add(i + 1); // i + 1 corresponds to the dice value
-            //    }
-            //    if (counts[i] == 3)
-            //    {
-            //        threeOfKindCount++;
-            //        threeOfAKindValue = i + 1;
-            //    }
-            //    if (counts[i] == 4)
-            //    {
-            //        fourOfKindCount++;
-            //        fourOfAKindValue = i + 1;
-            //    }
-            //    if (counts[i] == 5)
-            //    {
-            //        yatzy = true;
-            //    }
-            //}
-
-            //// Pair sum (if exactly one pair)
-            //if (pairValues.Count == 1)
-            //{
-            //    int value = pairValues[0];
-            //    sumOfPair = value * 2;
-            //}
-
-            //// Two Pairs
-            //if (pairValues.Count == 2)
-            //{
-            //    sumOfTwoPairs = (pairValues[0] * 2) + (pairValues[1] * 2);
-            //}
-
-            //// Three of a Kind
-            //if (threeOfKindCount > 0)
-            //{
-            //    sumOfThree = threeOfAKindValue * 3;
-            //}
-
-            //// Four of a Kind
-            //if (fourOfKindCount > 0)
-            //{
-            //    sumOfFour = fourOfAKindValue * 4;
-            //}
-
-            //// Full house
-            //if (fullHouse)
-            //    fullHouseScore = 28;
-
-            //// Yatzy
-            //yatzy = counts.Any(count => count == 5);
-            //if (yatzy)
-            //    yatzyScore = 50;
-
-            //Trace.WriteLine($"\nMatch Sums:");
-            //Trace.WriteLine($"Sum of Pair: {sumOfPair}");
-            //Trace.WriteLine($"Sum of Two Pairs: {sumOfTwoPairs}");
-            //Trace.WriteLine($"Sum of Three of a Kind: {sumOfThree}");
-            //Trace.WriteLine($"Sum of Four of a Kind: {sumOfFour}");
-            //Trace.WriteLine($"Full House Score: {fullHouseScore}");
-            //Trace.WriteLine($"Yatzy Score: {yatzyScore}");
-
+           
             // Ones
             if (isOnesButtonAllowedToBeEnabled == true && (DieThrow1 == 1 || DieThrow2 == 1 || DieThrow3 == 1 || DieThrow4 == 1 || DieThrow5 == 1))
             {
@@ -735,9 +584,6 @@ namespace Yatzy
             {
                 ChanceButton.IsEnabled = false;
             }
-
-            Trace.WriteLine($"Chance = {Chance}");
-
 
             // Yatzy
             if (isYatzyButtonAllowedToBeEnabled == true && yatzyScore == 50)
