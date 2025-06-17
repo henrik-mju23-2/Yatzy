@@ -15,14 +15,12 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Yatzy.YatzyGame;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Yatzy
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class GamePage : Page
     {
         Random rnd = new Random();
@@ -79,11 +77,11 @@ namespace Yatzy
 
         bool isYatzyButtonAllowedToBeEnabled = true;
 
-        public int Throw1;
-        public int Throw2;
-        public int Throw3;
-        public int Throw4; 
-        public int Throw5;
+        //public int Throw1;
+        //public int Throw2;
+        //public int Throw3;
+        //public int Throw4; 
+        //public int Throw5;
 
         // Count pairs
         public int count1;
@@ -208,30 +206,30 @@ namespace Yatzy
 
         private void DieButton_Click(object sender, RoutedEventArgs e)
         {
+            // Instantiate Tarning
+            Tarning tarning = new Tarning();
 
             // Rolls the dice and updates their background images
-            DieThrow1 = rnd.Next(1, 7);
+            DieThrow1 = tarning.Roll();
             Die1.Background = Empty;
 
-            DieThrow2 = rnd.Next(1, 7);
+            DieThrow2 = tarning.Roll();
             Die2.Background = Empty;
 
-            DieThrow3 = rnd.Next(1, 7);
+            DieThrow3 = tarning.Roll();
             Die3.Background = Empty;
 
-            DieThrow4 = rnd.Next(1, 7);
+            DieThrow4 = tarning.Roll();
             Die4.Background = Empty;
 
-            DieThrow5 = rnd.Next(1, 7);
+            DieThrow5 = tarning.Roll();
             Die5.Background = Empty;
 
-            Throw1 = DieThrow1;
-            Throw2 = DieThrow2;
-            Throw3 = DieThrow3;
-            Throw4 = DieThrow4;
-            Throw5 = DieThrow5;
-
-            // TODO: Rewrite this code to use fewer lines
+            //Throw1 = DieThrow1;
+            //Throw2 = DieThrow2;
+            //Throw3 = DieThrow3;
+            //Throw4 = DieThrow4;
+            //Throw5 = DieThrow5;
 
             // Reset DieSlot images each dice roll
             DieSlotImage.ImageSource = new BitmapImage(new Uri($@"ms-appx:///Assets/DieSlot.png"));
@@ -296,7 +294,7 @@ namespace Yatzy
                 Die5.Background = img5;
             }
 
-            // Count pairs
+            // Reset pair counter values
             count1 = 0;
             count2 = 0;
             count3 = 0;
@@ -304,169 +302,83 @@ namespace Yatzy
             count5 = 0;
             count6 = 0;
 
-            // Sum of pairs, full house and Yatzy
+            // Reset sum of pairs, full house, yatzy and chance values
             sumOfPair = 0;
             sumOfTwoPairs = 0;
             sumOfThree = 0;
             sumOfFour = 0;
             fullHouseScore = 0;
             yatzyScore = 0;
+            Chance = 0;
 
-            // Show rolls
-            Trace.WriteLine($"Throws: {Throw1}, {Throw2}, {Throw3}, {Throw4}, {Throw5}");
-
-            // Count occurrences
-            int[] throws = { Throw1, Throw2, Throw3, Throw4, Throw5 };
-            foreach (int value in throws)
-            {
-                switch (value)
-                {
-                    case 1: count1++; break;
-                    case 2: count2++; break;
-                    case 3: count3++; break;
-                    case 4: count4++; break;
-                    case 5: count5++; break;
-                    case 6: count6++; break;
-                }
-            }
-
-            int[] counts = { count1, count2, count3, count4, count5, count6 };
-
-            // Match analysis
-            int pairCount = 0;
-            int threeOfKindCount = 0;
-            int fourOfKindCount = 0;
+            // Reset value of yatzy
             bool yatzy = false;
+
+            // Reset value of fullHouse
             bool fullHouse = false;
 
-            foreach (int count in counts)
+            // Instantiate Regler using the die throws
+            Regler regler = new Regler(
+                DieThrow1,
+                DieThrow2,
+                DieThrow3,
+                DieThrow4,
+                DieThrow5
+            );
+
+            // Add values to integers count1-6
+            count1 = regler.Ones;
+            count2 = regler.Twos;
+            count3 = regler.Threes;
+            count4 = regler.Fours;
+            count5 = regler.Fives;
+            count6 = regler.Sixes;
+
+            // Add values to pairs, small straights, large straights, full house, yatzy and chance
+            sumOfPair = regler.SumOfPair;
+            sumOfTwoPairs = regler.SumOfTwoPairs;      
+            sumOfThree = regler.SumOfThree;
+            sumOfFour = regler.SumOfFour;
+
+            smallStraight = regler.IsSmallStraight;
+            largeStraight = regler.IsLargeStraight;
+
+            fullHouse = regler.IsFullHouse;
+            
+            yatzy = regler.IsYatzy;
+
+            Chance = regler.ChanceScore;
+
+            // Check full house value
+            if(regler.IsFullHouse == true)
             {
-                if (count == 2) pairCount++;
-                if (count == 3) threeOfKindCount++;
-                if (count == 4) fourOfKindCount++;
-                if (count == 5) yatzy = true;
+                fullHouseScore = regler.FullHouseScore;
             }
 
-            fullHouse = (pairCount == 1 && threeOfKindCount == 1);
-            bool twoPair = (pairCount >= 2);
-
-            // Detect small and large straights
-            bool[] valuesPresent = new bool[7]; // index 0 unused
-            foreach (int value in throws)
+            // Check small and large straight values
+            if(regler.IsSmallStraight == true)
             {
-                valuesPresent[value] = true;
+                smallStraight = true;
             }
 
-            smallStraight =
-                (valuesPresent[1] && valuesPresent[2] && valuesPresent[3] && valuesPresent[4]) && valuesPresent[5];
-
-            largeStraight =
-                (valuesPresent[2] && valuesPresent[3] && valuesPresent[4] && valuesPresent[5]) && valuesPresent[6];
-
-            // Output grouped results
-            Trace.WriteLine("\nGrouped Matches:");
-            if (count1 > 1) Trace.WriteLine($"{count1} of value 1");
-            if (count2 > 1) Trace.WriteLine($"{count2} of value 2");
-            if (count3 > 1) Trace.WriteLine($"{count3} of value 3");
-            if (count4 > 1) Trace.WriteLine($"{count4} of value 4");
-            if (count5 > 1) Trace.WriteLine($"{count5} of value 5");
-            if (count6 > 1) Trace.WriteLine($"{count6} of value 6");
-
-            // Output patterns
-            Trace.WriteLine("\nPattern Summary:");
-            Trace.WriteLine($"Single Pairs: {pairCount}");
-            Trace.WriteLine($"Two Pairs Present: {(twoPair ? "Yes" : "No")}");
-            Trace.WriteLine($"Three of a Kind: {threeOfKindCount}");
-            Trace.WriteLine($"Four of a Kind: {fourOfKindCount}");
-            Trace.WriteLine($"Full House: {(fullHouse ? "Yes" : "No")}");
-            Trace.WriteLine($"Yatzy: {(yatzy ? "Yes" : "No")}");
-            Trace.WriteLine($"Small Straight: {(smallStraight ? "Yes" : "No")}");
-            Trace.WriteLine($"Large Straight: {(largeStraight ? "Yes" : "No")}");
-
-            // Sum values of pairs
-
-            List<int> pairValues = new List<int>();
-            int threeOfAKindValue = 0;
-            int fourOfAKindValue = 0;
-
-            for (int i = 0; i < counts.Length; i++)
+            if (regler.IsLargeStraight == true)
             {
-                if (counts[i] == 2)
-                {
-                    pairCount++;
-                    pairValues.Add(i + 1); // i + 1 corresponds to the dice value
-                }
-                if (counts[i] == 3)
-                {
-                    threeOfKindCount++;
-                    threeOfAKindValue = i + 1;
-                }
-                if (counts[i] == 4)
-                {
-                    fourOfKindCount++;
-                    fourOfAKindValue = i + 1;
-                }
-                if (counts[i] == 5)
-                {
-                    yatzy = true;
-                }
+                largeStraight = true;
             }
 
-            // Pair sum (if exactly one pair)
-            if (pairValues.Count == 1)
+            // Check yatzy value
+            if(regler.IsYatzy == true)
             {
-                int value = pairValues[0];
-                sumOfPair = value * 2;
+                yatzyScore = regler.YatzyScore;
             }
 
-            // Two Pairs
-            if (pairValues.Count == 2)
-            {
-                sumOfTwoPairs = (pairValues[0] * 2) + (pairValues[1] * 2);
-            }
-
-            // Three of a Kind
-            if (threeOfKindCount > 0)
-            {
-                sumOfThree = threeOfAKindValue * 3;
-            }
-
-            // Four of a Kind
-            if (fourOfKindCount > 0)
-            {
-                sumOfFour = fourOfAKindValue * 4;
-            }
-
-            // Full house
-            if (fullHouse)
-                fullHouseScore = 28;
-
-            // Yatzy
-            yatzy = counts.Any(count => count == 5);
-            if (yatzy)
-                yatzyScore = 50;
-
-            Trace.WriteLine($"\nMatch Sums:");
-            Trace.WriteLine($"Sum of Pair: {sumOfPair}");
-            Trace.WriteLine($"Sum of Two Pairs: {sumOfTwoPairs}");
-            Trace.WriteLine($"Sum of Three of a Kind: {sumOfThree}");
-            Trace.WriteLine($"Sum of Four of a Kind: {sumOfFour}");
-            Trace.WriteLine($"Full House Score: {fullHouseScore}");
-            Trace.WriteLine($"Yatzy Score: {yatzyScore}");
-
-
-            // Optionally handle no matches
-            //if (count1 <= 1 && count2 <= 1 && count3 <= 1 &&
-            //    count4 <= 1 && count5 <= 1 && count6 <= 1)
-            //{
-            //    Trace.WriteLine("No matching values.");
-            //}
-
-
+            // Check chance value
+            Chance = regler.ChanceScore;
+           
             // Ones
             if (isOnesButtonAllowedToBeEnabled == true && (DieThrow1 == 1 || DieThrow2 == 1 || DieThrow3 == 1 || DieThrow4 == 1 || DieThrow5 == 1))
             {
-                OnesButton.Content = count1 * 1;
+                OnesButton.Content = count1;
                 OnesButton.IsEnabled = true;
             }
             else if (isOnesButtonAllowedToBeEnabled == false)
@@ -481,7 +393,7 @@ namespace Yatzy
             // Twos
             if (isTwosButtonAllowedToBeEnabled == true && (DieThrow1 == 2 || DieThrow2 == 2 || DieThrow3 == 2 || DieThrow4 == 2 || DieThrow5 == 2))
             {
-                TwosButton.Content = count2 * 2;
+                TwosButton.Content = count2;
                 TwosButton.IsEnabled = true;
             }
             else if (isTwosButtonAllowedToBeEnabled == false)
@@ -496,7 +408,7 @@ namespace Yatzy
             // Threes
             if (isThreesButtonAllowedToBeEnabled == true && (DieThrow1 == 3 || DieThrow2 == 3 || DieThrow3 == 3 || DieThrow4 == 3 || DieThrow5 == 3))
             {
-                ThreesButton.Content = count3 * 3;
+                ThreesButton.Content = count3;
                 ThreesButton.IsEnabled = true;
             }
             else if (isThreesButtonAllowedToBeEnabled == false)
@@ -511,7 +423,7 @@ namespace Yatzy
             // Fours
             if (isFoursButtonAllowedToBeEnabled == true && (DieThrow1 == 4 || DieThrow2 == 4 || DieThrow3 == 4 || DieThrow4 == 4 || DieThrow5 == 4))
             {
-                FoursButton.Content = count4 * 4;
+                FoursButton.Content = count4;
                 FoursButton.IsEnabled = true;
             }
             else if (isFoursButtonAllowedToBeEnabled == false)
@@ -526,7 +438,7 @@ namespace Yatzy
             // Fives
             if (isFivesButtonAllowedToBeEnabled == true && (DieThrow1 == 5 || DieThrow2 == 5 || DieThrow3 == 5 || DieThrow4 == 5 || DieThrow5 == 5))
             {
-                FivesButton.Content = count5 * 5;
+                FivesButton.Content = count5;
                 FivesButton.IsEnabled = true;
             }
             else if (isFivesButtonAllowedToBeEnabled == false)
@@ -541,7 +453,7 @@ namespace Yatzy
             // Sixes
             if (isSixesButtonAllowedToBeEnabled == true && (DieThrow1 == 6 || DieThrow2 == 6 || DieThrow3 == 6 || DieThrow4 == 6 || DieThrow5 == 6))
             {
-                SixesButton.Content = count6 * 6;
+                SixesButton.Content = count6;
                 SixesButton.IsEnabled = true;
             }
             else if (isSixesButtonAllowedToBeEnabled == false)
@@ -659,9 +571,6 @@ namespace Yatzy
             }
 
             // Chance
-            Chance = 0;
-            Chance = DieThrow1 + DieThrow2 + DieThrow3 + DieThrow4 + DieThrow5;
-
             if (isChanceButtonAllowedToBeEnabled == true && Chance > 0)
             {
                 ChanceButton.Content = Chance;
@@ -675,9 +584,6 @@ namespace Yatzy
             {
                 ChanceButton.IsEnabled = false;
             }
-
-            Trace.WriteLine($"Chance = {Chance}");
-
 
             // Yatzy
             if (isYatzyButtonAllowedToBeEnabled == true && yatzyScore == 50)
@@ -696,6 +602,8 @@ namespace Yatzy
 
         }
 
+        // Info button
+
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             InformationPopUp.IsOpen = true;
@@ -707,6 +615,8 @@ namespace Yatzy
             InformationPopUp.IsOpen = false;
             BlurRectangle.Visibility = Visibility.Collapsed;
         }
+
+        // Die and die-slot buttons
 
         private void DieSlot1_Click(object sender, RoutedEventArgs e)
         {
@@ -816,6 +726,8 @@ namespace Yatzy
             Die5.Background = Empty;
         }
 
+        // Scoreboard buttons
+
         private void OnesButton_Click(object sender, RoutedEventArgs e)
         {
             if (!isOnesIntSet && OnesButton.IsEnabled == true)
@@ -824,7 +736,7 @@ namespace Yatzy
                 isOnesIntSet = true;
                 isOnesButtonAllowedToBeEnabled = false;
                 OnesButton.IsEnabled = false;
-                OnesTextBlock.Text = $"{OnesInt * 1}";
+                OnesTextBlock.Text = $"{OnesInt}";
                 OnesTextBlock.Visibility = Visibility.Visible;
             }
         }
@@ -837,7 +749,7 @@ namespace Yatzy
                 isTwosIntSet = true;
                 isTwosButtonAllowedToBeEnabled = false;
                 TwosButton.IsEnabled = false;
-                TwosTextBlock.Text = $"{TwosInt * 2}";
+                TwosTextBlock.Text = $"{TwosInt}";
                 TwosTextBlock.Visibility = Visibility.Visible;
             }
         }
@@ -850,7 +762,7 @@ namespace Yatzy
                 isThreesIntSet = true;
                 isThreesButtonAllowedToBeEnabled = false;
                 ThreesButton.IsEnabled = false;
-                ThreesTextBlock.Text = $"{ThreesInt * 3}";
+                ThreesTextBlock.Text = $"{ThreesInt}";
                 ThreesTextBlock.Visibility = Visibility.Visible;
             }
         }
@@ -863,7 +775,7 @@ namespace Yatzy
                 isFoursIntSet = true;
                 isFoursButtonAllowedToBeEnabled = false;
                 FoursButton.IsEnabled = false;
-                FoursTextBlock.Text = $"{FoursInt * 4}";
+                FoursTextBlock.Text = $"{FoursInt}";
                 FoursTextBlock.Visibility = Visibility.Visible;
             }
         }
@@ -876,7 +788,7 @@ namespace Yatzy
                 isFivesIntSet = true;
                 isFivesButtonAllowedToBeEnabled = false;
                 FivesButton.IsEnabled = false;
-                FivesTextBlock.Text = $"{FivesInt * 5}";
+                FivesTextBlock.Text = $"{FivesInt}";
                 FivesTextBlock.Visibility = Visibility.Visible;
             }
         }
@@ -889,7 +801,7 @@ namespace Yatzy
                 isSixesIntSet = true;
                 isSixesButtonAllowedToBeEnabled = false;
                 SixesButton.IsEnabled = false;
-                SixesTextBlock.Text = $"{SixesInt * 6}";
+                SixesTextBlock.Text = $"{SixesInt}";
                 SixesTextBlock.Visibility = Visibility.Visible;
             }
         }
